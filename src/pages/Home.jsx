@@ -166,7 +166,7 @@ function Home() {
         </div>
       </div>
     </div>
-    <div className="relative bg-cover bg-center h-96" style={{ backgroundImage: `url(${AboutUs})` }}>
+    <div className="relative bg-cover bg-center h-96 mt-8" style={{ backgroundImage: `url(${AboutUs})` }}>
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="relative z-10 flex flex-col justify-center items-start h-full p-8 text-white max-w-2xl ml-auto">
         <h2 className="text-3xl font-bold mb-4">Why us?</h2>
