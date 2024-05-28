@@ -34,15 +34,16 @@ import ThymeImage from '../assets/thymeandspices.png'
 import { useTranslation } from 'react-i18next';
 import { Link as ScrollLink, Element } from 'react-scroll';
 
+
 function Home() {
   const { t } = useTranslation();
   const questions = [
-    { question: t('how_manage_quality_assurance'), answer: t('answer_quality_assurance') },
-    { question: t('diverse_capabilities'), answer: t('answer_manufacturing') },
-    { question: t('rely_on_amwerk'), answer: t('answer_reliability') },
-    { question: t('how_manage_quality_assurance_again'), answer: t('answer_quality_assurance_again') },
-    { question: t('communicate_technology'), answer: t('answer_technology_communication') },
+    { question: t('What shipping options are available?'), answer: t('All kinds of shipping methods : land, sea, air') },
+    { question: t('What payment method is available?'), answer: t('Cash or bank transfer') },
+    { question: t('What are the warranty terms for the machines?'), answer: t('All machines Food Machinery Manufacturing Company are guaranteed for a minimum of 3 years') }
+    
   ];
+  
 
   return (
     <>
@@ -227,7 +228,7 @@ function Home() {
           <div className="absolute inset-0 bg-black opacity-50 rounded-lg"></div>
           <div className="relative z-10 text-center text-white">
             <h2 className="text-2xl font-bold">{t('easy_quotation')}</h2>
-            <p className="mt-4 text-lg font-semibold">(+1) 555 234-8765</p>
+            <p className="mt-4 text-lg font-semibold">(+971) 52 621 1664</p>
             <p className="text-sm">{t('call_us_now')}</p>
           </div>
         </div>

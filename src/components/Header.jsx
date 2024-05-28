@@ -19,6 +19,14 @@ function Header() {
     toggleSidebar();
   };
 
+  const handleEmailClick = () => {
+    window.location.href = 'mailto:worldofmills0@gmail.com';
+  };
+
+  const handleContactUsClick = () => {
+    window.location.href = 'https://wa.me/971526211664';
+  };
+
   return (
     <div>
       <div className="flex justify-between items-center p-4 bg-white shadow-md">
@@ -29,7 +37,6 @@ function Header() {
           </span>
         </div>
         <div className="flex items-center space-x-4">
-          
           <div className="text-black cursor-pointer" onClick={toggleSidebar}>
             <MenuIcon />
           </div>
@@ -44,29 +51,24 @@ function Header() {
           <CloseIcon className="cursor-pointer" onClick={toggleSidebar} />
         </div>
         <ul className="p-4 space-y-4 font-semibold text-xl ml-4">
-          
           <li>Home</li>
-          <li>About</li>
-          <li>Pages</li>
-          <li>Services</li>
-          <li>News</li>
-          <li>Contact</li>
-
         </ul>
-        <button onClick={handleButtonClick} className=" text-lg font-bold ml-4">
-            {language === 'en' ? 'Arabic' : 'English'}
-            </button>
+        <button onClick={handleButtonClick} className="text-lg font-bold ml-4">
+          {language === 'en' ? 'Arabic' : 'English'}
+        </button>
         <div className="p-4 space-y-4">
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-2 cursor-pointer" onClick={handleEmailClick}>
             <EmailIcon />
-            <p>info@webmail.com</p>
+            <p>worldofmills0@gmail.com</p>
           </div>
           <div className="flex items-center space-x-2">
             <PhoneIcon />
-            <p>987-098-098-09</p>
+            <p>+971 52 621 1664</p>
           </div>
           <div className="flex justify-center">
-            <button className="bg-yellow-500 text-white font-bold p-4 rounded-lg mt-4">Contact Us</button>
+            <button className="bg-yellow-500 text-white font-bold p-4 rounded-lg mt-4" onClick={handleContactUsClick}>
+              Contact Us
+            </button>
           </div>
         </div>
       </div>
