@@ -13,7 +13,7 @@ import MercyCorpsImage from '../assets/MercyCorps.jpg';
 import SamihAlYamanImage from '../assets/SamihAlYaman.png';
 import AboutUs2Image from '../assets/AboutUs2.png';
 import AboutUs3Image from '../assets/AboutUs3.png';
-import AboutUs1Image from '../assets/AboutUs1.png';
+import AboutUs6Image from '../assets/AboutUs6.svg';
 import AboutUs5Image from '../assets/AboutUs5.svg';
 import RoomIcon from '@mui/icons-material/Room';
 import BadgeIcon from '@mui/icons-material/Badge';
@@ -33,6 +33,7 @@ import TahiniImage from '../assets/tahiniandhalawi.png'
 import ThymeImage from '../assets/thymeandspices.png'
 import { useTranslation } from 'react-i18next';
 import { Link as ScrollLink, Element } from 'react-scroll';
+import AnimatedNumber from '../components/AnimatedNumber';
 
 
 function Home() {
@@ -48,24 +49,25 @@ function Home() {
   return (
     <>
       <div className="relative h-screen bg-cover bg-center" style={{ backgroundImage: `url(${Hero})` }}>
-        <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="relative z-10 flex flex-col items-start justify-center h-full p-8 text-white">
-          <h1 className="text-5xl font-bold">{t('global_automation')}</h1>
-          <div className="mt-4">
-            <ScrollLink to="services" smooth={true} duration={500}>
-              <button className="px-6 py-3 bg-yellow-500 text-black font-semibold rounded-lg shadow-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-75 mr-4">
-                {t('our_services')}
-              </button>
-            </ScrollLink>
-            <ScrollLink to='learnmore' smooth={true} duration={500} >
-             <button className="px-6 py-3 bg-black text-white font-semibold rounded-lg shadow-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-75">
-              {t('learn_more')}
-            </button> 
-            </ScrollLink>
-            
-          </div>
-        </div>
-      </div>
+  <div className="absolute inset-0 bg-black opacity-50"></div>
+  <div className="relative z-10 flex flex-col items-start justify-center h-full p-8 text-white">
+    <h1 className="text-5xl font-bold">{t('innovative_food_processing_solutions')}</h1>
+    <h2 className="text-2xl mt-4">{t('advanced_machinery_modern_food_industry')}</h2>
+    <div className="mt-4">
+      <ScrollLink to="services" smooth={true} duration={500}>
+        <button className="px-6 py-3 bg-yellow-500 text-black font-semibold rounded-lg shadow-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-75 mr-4">
+          {t('our_services')}
+        </button>
+      </ScrollLink>
+      <ScrollLink to='learnmore' smooth={true} duration={500}>
+        <button className="px-6 py-3 bg-black text-white font-semibold rounded-lg shadow-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-75">
+          {t('learn_more')}
+        </button>
+      </ScrollLink>
+    </div>
+  </div>
+</div>
+
       <div className="flex flex-col md:flex-row">
         <div className="flex-1 p-8">
           <h2 className="text-gray-500">{t('get_answers')}</h2>
@@ -286,11 +288,11 @@ function Home() {
             <div className="relative bg-white p-6 rounded-lg shadow-md text-center w-full max-w-sm">
               <div className="flex items-center justify-center mb-4">
                 <div className="h-24 w-24 bg-yellow-500 rounded-full flex items-center justify-center">
-                  <img src={AboutUs1Image} alt="Service Icon" className="h-12 w-12" />
+                  <img src={AboutUs6Image} alt="Service Icon" className="h-12 w-12" />
                 </div>
               </div>
               <div className="relative z-10">
-                <p className="text-lg font-bold">{t('Laser Cut')}</p>
+                <p className="text-lg font-bold">{t('Manufacturing Complete Food Production Lines')}</p>
               </div>
             </div>
           </div>
@@ -312,24 +314,24 @@ function Home() {
       </Element>
 
       <div className="bg-yellow-500 py-12">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center text-white">
-          <div className="flex flex-col items-center">
-            <RoomIcon style={{ fontSize: 48 }} />
-            <p className="text-4xl font-bold mt-4">15+</p>
-            <p className="text-lg">{t('countries_export')}</p>
-          </div>
-          <div className="flex flex-col items-center">
-            <BadgeIcon style={{ fontSize: 48 }} />
-            <p className="text-4xl font-bold mt-4">30+</p>
-            <p className="text-lg">{t('years_experience_count')}</p>
-          </div>
-          <div className="flex flex-col items-center">
-            <BuildIcon style={{ fontSize: 48 }} />
-            <p className="text-4xl font-bold mt-4">2000+</p>
-            <p className="text-lg">{t('manufactured_machines')}</p>
-          </div>
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center text-white">
+        <div className="flex flex-col items-center">
+          <RoomIcon style={{ fontSize: 48 }} />
+          <p className="text-4xl font-bold mt-4"><AnimatedNumber value={15} />+</p>
+          <p className="text-lg">{t('countries_export')}</p>
+        </div>
+        <div className="flex flex-col items-center">
+          <BadgeIcon style={{ fontSize: 48 }} />
+          <p className="text-4xl font-bold mt-4"><AnimatedNumber value={30} />+</p>
+          <p className="text-lg">{t('years_experience_count')}</p>
+        </div>
+        <div className="flex flex-col items-center">
+          <BuildIcon style={{ fontSize: 48 }} />
+          <p className="text-4xl font-bold mt-4"><AnimatedNumber value={2000} />+</p>
+          <p className="text-lg">{t('manufactured_machines')}</p>
         </div>
       </div>
+    </div>
       <Element id='learnmore' name='learnmore'>
       <div className="relative bg-cover bg-center h-96 mt-8" style={{ backgroundImage: `url(${AboutUs})` }}>
         <div className="absolute inset-0 bg-black opacity-70"></div>

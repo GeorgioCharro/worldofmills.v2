@@ -5,6 +5,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
 import { LanguageContext } from '../contexts/LanguageContext';
+import { t } from 'i18next';
+import { Link } from 'react-router-dom';
 
 function Header() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -33,7 +35,7 @@ function Header() {
         <div className="flex items-center">
           <img src={Logo} alt="Logo" className="h-10 w-auto" />
           <span className="text-3xl font-bold text-black ml-2">
-            <p>WorldOfMills</p>
+           <Link to={'/'}><p>WorldOfMills</p></Link> 
           </span>
         </div>
         <div className="flex items-center space-x-4">
@@ -50,8 +52,19 @@ function Header() {
           <h2 className="text-2xl font-bold">Menu</h2>
           <CloseIcon className="cursor-pointer" onClick={toggleSidebar} />
         </div>
-        <ul className="p-4 space-y-4 font-semibold text-xl ml-4">
-          <li>Home</li>
+        <ul className="p-4 space-y-4 font-semibold text-lg ml-4">
+          <li><Link to={'/'}>{t('Home')}</Link></li>
+          <li> <button onClick={handleContactUsClick}>{t('Contact Us')}</button></li>
+          <li>{t('Catalogue')}</li>
+          <li className='m-4 text-sm'><Link to={'/category/Thyme%20and%20Spices'}>{t('Thyme And Spices')}</Link></li>
+          <li className='m-4 text-sm'><Link to={'/category/Nuts'}>{t('Nuts')}</Link></li>
+          <li className='m-4 text-sm'><Link to={'/category/Feeder'}>{t('Animal Feed Production Lines')}</Link></li>
+          <li className='m-4 text-sm'><Link to={'/category/Chocolate'}>{t('Chocolate Machines')}</Link></li>
+          <li className='m-4 text-sm'><Link to={'/category/Dairy'}>{t('Dairy')}</Link></li>
+          <li className='m-4 text-sm'><Link to={'/category/Filling'}>{t('Filtering Machines')}</Link></li>
+          <li className='m-4 text-sm'><Link to={'/category/Others'}>{('Others')}</Link></li>
+
+          
         </ul>
         <button onClick={handleButtonClick} className="text-lg font-bold ml-4">
           {language === 'en' ? 'Arabic' : 'English'}
@@ -66,9 +79,9 @@ function Header() {
             <p>+971 52 621 1664</p>
           </div>
           <div className="flex justify-center">
-            <button className="bg-yellow-500 text-white font-bold p-4 rounded-lg mt-4" onClick={handleContactUsClick}>
-              Contact Us
-            </button>
+            <Link className="bg-yellow-500 text-white font-bold p-4 rounded-lg mt-4" to={'/contact-form'} >
+              {t('Get a Quote')}
+            </Link>
           </div>
         </div>
       </div>
