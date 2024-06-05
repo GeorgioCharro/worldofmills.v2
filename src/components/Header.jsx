@@ -22,7 +22,7 @@ function Header() {
   };
 
   const handleEmailClick = () => {
-    window.location.href = 'mailto:worldofmills0@gmail.com';
+    window.location.href = 'mailto:worldofmills1@gmail.com';
   };
 
   const handleContactUsClick = () => {
@@ -72,7 +72,7 @@ function Header() {
         <div className="p-4 space-y-4">
           <div className="flex items-center space-x-2 cursor-pointer" onClick={handleEmailClick}>
             <EmailIcon />
-            <p>worldofmills0@gmail.com</p>
+            <p>worldofmills1@gmail.com</p>
           </div>
           <div className="flex items-center space-x-2">
             <PhoneIcon />
