@@ -9,7 +9,9 @@ const MachineItem = ({ machine }) => {
 
   return (
     <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-      <img src={machine.imgUrls[0]} alt={machineName} className="w-full h-48 object-cover" />
+      <div className="w-full h-96">
+        <img src={machine.imgUrls[0]} alt={machineName} className="w-full h-full object-fill" />
+      </div>
       <div className="p-4">
         <h2 className="text-xl font-bold">{machineName}</h2>
         <p className="text-gray-700">{description}</p>
