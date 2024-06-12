@@ -41,7 +41,7 @@ function Home() {
   const questions = [
     { question: t('What shipping options are available?'), answer: t('All kinds of shipping methods : land, sea, air') },
     { question: t('What payment method is available?'), answer: t('Cash or bank transfer') },
-    { question: t('What are the warranty terms for the machines?'), answer: t('All machines Food Machinery Manufacturing Company are guaranteed for a minimum of 3 years') }
+    { question: t('What are the warranty terms for the machines?'), answer: t('All machines Food Machinery Manufacturing Company are guaranteed for a minimum of 1 years') }
     
   ];
   
@@ -342,7 +342,7 @@ function Home() {
             <li>{t('Keeping up with the latest technologies')}</li>
             <li>{t('Simplifying the manufacturing of food materials')}</li>
             <li>{t('After-sales services')}</li>
-            <li>{t('Warranty not less than 3 years')}</li>
+            <li>{t('Warranty not less than 1 years')}</li>
           </ul>
         </div>
       </div>

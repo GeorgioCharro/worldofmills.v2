@@ -10,7 +10,7 @@ function Footer() {
   const [error, setError] = useState(null);
 
   const handleEmailClick = () => {
-    window.location.href = 'mailto:worldofmills0@gmail.com';
+    window.location.href = 'mailto:worldofmills1@gmail.com';
   };
 
   const handleSubscribe = async () => {
@@ -71,7 +71,7 @@ function Footer() {
           </div>
           <div className="flex items-center space-x-2" onClick={handleEmailClick}>
             <Email className="bg-yellow-500 p-2 rounded-full text-black" />
-            <p>worldofmills0@gmail.com</p>
+            <p>worldofmills1@gmail.com</p>
           </div>
           <div className="flex items-center space-x-2">
             <LocationOn className="bg-yellow-500 p-2 rounded-full text-black" />
