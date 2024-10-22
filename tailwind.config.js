@@ -2,8 +2,11 @@
 module.exports = {
   content: ["./src/**/*.{html,js,jsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        oswald: ["Oswald", "sans-serif"],
+      },
+    },
   },
   plugins: [],
-}
-
+};

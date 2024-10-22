@@ -194,7 +194,7 @@ const ContactForm = () => {
       <div>
         <button
           type="submit"
-          className="px-6 py-3 bg-yellow-500 text-black font-semibold rounded-lg shadow-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-75"
+          className="px-6 py-3 #cfac6e text-black font-semibold rounded-lg shadow-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-75"
         >
           {t('Submit')}
         </button>
