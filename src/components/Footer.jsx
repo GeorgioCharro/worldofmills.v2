@@ -5,7 +5,6 @@ import {
   Phone,
   Email,
   LocationOn,
-  Send,
 } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 import { collection, addDoc } from "firebase/firestore";

@@ -25,7 +25,7 @@ function DetailsContent() {
                 <div className="col-md-6 col-12">
                     <img
                         src={img1}
-                        alt="Gallery Image 1"
+                        alt="Gallery  1"
                         className="img-fluid"
                         style={{ width: '100%', height: 'auto' }}
                     />
@@ -33,7 +33,7 @@ function DetailsContent() {
                 <div className="col-md-6 col-12">
                     <img
                         src={img2}
-                        alt="Gallery Image 2"
+                        alt="Gallery  2"
                         className="img-fluid"
                         style={{ width: '100%', height: 'auto' }}
                     />

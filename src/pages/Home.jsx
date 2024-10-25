@@ -22,7 +22,7 @@ import StainlessImage from "../assets/stainless-steel.jpg";
 import TahiniImage from "../assets/tahiniandhalawi.png";
 import ThymeImage from "../assets/thymeandspices.png";
 import { useTranslation } from "react-i18next";
-import { Link as ScrollLink, Element } from "react-scroll";
+import { Element } from "react-scroll";
 import AnimatedNumber from "../components/AnimatedNumber";
 import CompaniesCarousel from "../components/CompaniesCarousel";
 import Analytics from "../components/Analytics";
@@ -31,22 +31,6 @@ import Hero3 from "../components/Hero3";
 
 function Home() {
   const { t } = useTranslation();
-  const questions = [
-    {
-      question: t("What shipping options are available?"),
-      answer: t("All kinds of shipping methods : land, sea, air"),
-    },
-    {
-      question: t("What payment method is available?"),
-      answer: t("Cash or bank transfer"),
-    },
-    {
-      question: t("What are the warranty terms for the machines?"),
-      answer: t(
-        "All machines Food Machinery Manufacturing Company are guaranteed for a minimum of 1 years"
-      ),
-    },
-  ];
 
   return (
     <>
