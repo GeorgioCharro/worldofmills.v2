@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next'; // Import useTranslation
-import logo from '../../assets/logo.png';
+import logo from "../../assets/logo.png"
 import MobileMenu from '../MobileMenu';
 
 function MainMenu3() {
