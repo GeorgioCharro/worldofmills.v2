@@ -2,8 +2,11 @@ import React from 'react';
 import { BsArrowRight } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import AgeImg from '../../assets/img/age.png';
+import { useTranslation } from "react-i18next";
 
 function Promo() {
+    const { t } = useTranslation(); // Access translation function
+
     return (
         <section className="promo-featured-wrapper section-padding">
             <div className="container">
@@ -12,38 +15,31 @@ function Promo() {
                     <div className="col-xl-6 col-12 text-center">
                         <img 
                             src={AgeImg} 
-                            alt="World of Mills - Leaders in Food Machines and Automation" 
+                            alt={t("innovating_food_processing_machinery")} 
                         />
                         <h5>
-                            <b>Over 10 Years of Experience</b> in 
-                            <strong> Mills, Food Machines, and Machineries</strong>
+                            <b>{t("over_30_years_experience")}</b> in 
+                            <strong> {t("mills_food_machines_machineries")}</strong>
                         </h5>
                     </div>
 
                     {/* Content Section */}
                     <div className="col-xl-6 col-12">
                         <div className="block-contents ml-xl-5 mt-5 mt-xl-0">
-                            <span>Your Partner in Advanced Food Machines & Automation</span>
-                            <h1>World of Mills: Innovating Food Processing Machinery</h1>
-                            <h4>
-                                Harness the power of cutting-edge mills and food machines 
-                                to stay ahead of market trends.
-                            </h4>
+                            <span>{t("partner_advanced_food_automation")}</span>
+                            <h1>{t("innovating_food_processing_machinery")}</h1>
+                            <h4>{t("harness_cutting_edge_mills")}</h4>
                             <p>
-                                <strong>World of Mills</strong> specializes in providing 
-                                high-quality <b>food machineries</b> and custom automation 
-                                solutions to enhance production efficiency. Our expertise 
-                                lies in designing advanced mills and food machines to 
-                                support businesses that focus on **organic products** 
-                                and **streamlined production processes**.
+                                <strong>World of Mills</strong> {t("specializes_in_high_quality_machineries")}
                             </p>
-
                             <p>
-                                Whether you need specialized food machineries or complete 
-                                production-line automation, we deliver solutions tailored 
-                                to your requirements. Trust us to improve production, 
-                                reduce downtime, and ensure your business remains at the 
-                                forefront of the **food machinery industry**.
+                                {t("expertise_in_advanced_design")}
+                            </p>
+                            <p>
+                                {t("specialized_machineries_production_lines")}
+                            </p>
+                            <p>
+                                {t("improve_production_reduce_downtime")}
                             </p>
 
                             {/* Call to Action Button */}
@@ -57,7 +53,7 @@ function Promo() {
                                     textDecoration: 'none',
                                 }}
                             >
-                                <span>Contact World of Mills Today</span>
+                                <span>{t("contact_world_of_mills")}</span>
                                 <BsArrowRight style={{ fontSize: '20px' }} />
                             </Link>
                         </div>

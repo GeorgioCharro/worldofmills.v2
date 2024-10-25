@@ -1,3 +1,4 @@
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -10,14 +11,19 @@ import HelbawiFoodsImage from "../assets/HelbawiFoods.png";
 import MercyCorpsImage from "../assets/MercyCorps.jpg";
 import SamihAlYamanImage from "../assets/SamihAlYaman.png";
 import CompanyLogo from "./CompanyLogoContainer";
+import { useTranslation } from "react-i18next"; // Import useTranslation
 
 function CompaniesCarousel() {
+  const { t } = useTranslation(); // Access translation function
+
   return (
     <div className="mt-14">
       <div className="flex justify-center mb-4">
         <p className="lg:text-4xl text-2xl text-black">
-          <span className="font-oswald text-[#cfac6e] font-bold">Explore</span> a selection of
-          our Clients
+          <span className="font-oswald text-[#cfac6e] font-bold">
+            {t("explore")}
+          </span>{" "}
+          {t("selection_of_clients")}
         </p>
       </div>
       <div className="max-w-5xl mx-auto px-4 relative">
@@ -42,22 +48,46 @@ function CompaniesCarousel() {
           modules={[Navigation, Pagination]}
         >
           <SwiperSlide className="mb-4">
-            <CompanyLogo image={AbidoImage} link={"https://abido.com/"} altText="Abido" />
+            <CompanyLogo
+              image={AbidoImage}
+              link={"https://abido.com/"}
+              altText="Abido"
+            />
           </SwiperSlide>
           <SwiperSlide>
-            <CompanyLogo image={BeryTechImage} link={"https://berytech.org/"} altText="Berytech" />
+            <CompanyLogo
+              image={BeryTechImage}
+              link={"https://berytech.org/"}
+              altText="Berytech"
+            />
           </SwiperSlide>
           <SwiperSlide>
-            <CompanyLogo image={DiraniImage} link={"https://dirani-group.com/en"} altText="Dirani" />
+            <CompanyLogo
+              image={DiraniImage}
+              link={"https://dirani-group.com/en"}
+              altText="Dirani"
+            />
           </SwiperSlide>
           <SwiperSlide>
-            <CompanyLogo image={HelbawiFoodsImage} link={"https://helbawifoods.com"} altText="Helbawi Foods" />
+            <CompanyLogo
+              image={HelbawiFoodsImage}
+              link={"https://helbawifoods.com"}
+              altText="Helbawi Foods"
+            />
           </SwiperSlide>
           <SwiperSlide>
-            <CompanyLogo image={MercyCorpsImage} link={"https://www.mercycorps.org/"} altText="Mercy Corps" />
+            <CompanyLogo
+              image={MercyCorpsImage}
+              link={"https://www.mercycorps.org/"}
+              altText="Mercy Corps"
+            />
           </SwiperSlide>
           <SwiperSlide>
-            <CompanyLogo image={SamihAlYamanImage} link={"https://alyamanfactories.com/"} altText="Samih Al Yaman" />
+            <CompanyLogo
+              image={SamihAlYamanImage}
+              link={"https://alyamanfactories.com/"}
+              altText="Samih Al Yaman"
+            />
           </SwiperSlide>
         </Swiper>
 
@@ -88,9 +118,6 @@ function CompaniesCarousel() {
             />
           </svg>
         </div>
-
-        {/* Custom Pagination */}
-        
       </div>
     </div>
   );

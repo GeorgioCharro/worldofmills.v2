@@ -1,6 +1,9 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next'; // Import useTranslation
 
 function PageBanner({ bannerBg, currentPage, heading }) {
+    const { t } = useTranslation(); // Access the translation function
+
     return (
         <section
             className="page-banner-wrap bg-cover"
@@ -13,17 +16,17 @@ function PageBanner({ bannerBg, currentPage, heading }) {
                             <nav>
                                 <ol className="breadcrumb">
                                     <li className="breadcrumb-item">
-                                        <a href="index.html">Home</a>
+                                        <a href="index.html">{t('breadcrumb_home')}</a>
                                     </li>
                                     <li className="breadcrumb-item active" aria-current="page">
-                                        {currentPage}
+                                        {t(currentPage)}
                                     </li>
                                 </ol>
                             </nav>
                         </div>
 
                         <div className="page-heading text-white">
-                            <h1>{heading}</h1>
+                            <h1>{t(heading)}</h1>
                         </div>
                     </div>
                 </div>

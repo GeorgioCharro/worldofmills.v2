@@ -1,8 +1,7 @@
-// Import Swiper core and required modules
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Scrollbar, A11y } from 'swiper/modules'; // Pagination removed
+import { Navigation } from 'swiper/modules'; // Pagination removed
+import { useTranslation } from 'react-i18next'; // Import useTranslation
 
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 
@@ -10,23 +9,25 @@ import timeLineData from './timeLineData';
 import TimelineItem from './TimelineItem';
 
 export default function App() {
+    const { t } = useTranslation(); // Access the translation function
+
     return (
         <section className="timeline-wrapper section-padding">
             <div className="container">
                 <div className="row mb-30">
                     <div className="col-12 col-lg-12">
                         <div className="section-title text-center">
-                            <span>Roadmap</span>
-                            <p>goal</p>
-                            <h1>Company Roadmap</h1>
+                            <span>{t('roadmap_title')}</span>
+                            <p>{t('goal')}</p>
+                            <h1>{t('company_roadmap')}</h1>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className="container-flud">
+            <div className="container-fluid">
                 <Swiper
-                    modules={[Navigation]} // Pagination removed
+                    modules={[Navigation]}
                     navigation
                     slidesPerView={4}
                     spaceBetween={30}
@@ -53,8 +54,8 @@ export default function App() {
                             <TimelineItem
                                 year={data.year}
                                 icon={data.icon}
-                                heading={data.heading}
-                                text={data.text}
+                                heading={t(data.heading)} // Use translation
+                                text={t(data.text)} // Use translation
                                 transform={data.transform}
                             />
                         </SwiperSlide>

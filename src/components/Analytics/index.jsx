@@ -1,17 +1,20 @@
 import React from 'react';
 import analyticsData from './analyticsData';
+import { useTranslation } from 'react-i18next'; // Import useTranslation
 
 function Analytics() {
+    const { t } = useTranslation(); // Access translation function
+
     return (
         <section className="analytis-wrapper section-padding">
             <div className="container">
                 <div className="row align-center">
                     <div className="col-xl-6 pr-xl-5 col-12">
                         <div className="block-contents">
-                            <span>Business Analytics</span>
-                            <h1>{analyticsData.heading}</h1>
-                            <h4>{analyticsData.subHeading}</h4>
-                            <p>{analyticsData.desc}</p>
+                            <span>{t('business_analytics')}</span>
+                            <h1>{t(analyticsData.heading)}</h1>
+                            <h4>{t(analyticsData.subHeading)}</h4>
+                            <p>{t(analyticsData.desc)}</p>
                         </div>
                         <div className="user-data mr-45 d-flex align-items-center">
                             <div
@@ -21,12 +24,12 @@ function Analytics() {
                                 }}
                             />
                             <div className="user-info">
-                                <h5>{analyticsData.userName}</h5>
-                                <span>{analyticsData.userPosition}</span>
+                                <h5>{t(analyticsData.userName)}</h5>
+                                <span>{t(analyticsData.userPosition)}</span>
                             </div>
                             <div className="phone-info">
-                                <a href="/">{analyticsData.userPhone}</a>
-                                <span>Make An Call</span>
+                                <a href="/">{t(analyticsData.userPhone)}</a>
+                                <span>{t('make_a_call')}</span>
                             </div>
                         </div>
                     </div>

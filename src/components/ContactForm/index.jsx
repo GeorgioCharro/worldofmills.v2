@@ -1,11 +1,14 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import { collection, addDoc } from 'firebase/firestore';
-import { db } from '../../firebase.config'; // Import Firestore instance
-import { toast } from 'react-toastify'; // Toast notifications (optional)
+import { db } from '../../firebase.config'; // Firestore instance
+import { toast } from 'react-toastify'; // Toast notifications
 import FormInput from './FormInput';
+import { useTranslation } from 'react-i18next'; // Import useTranslation
 
 function ContactForm({ title, heading }) {
+    const { t } = useTranslation(); // Access translation function
+
     // STATES
     const [formData, setFormData] = useState({
         fullname: '',
@@ -25,13 +28,12 @@ function ContactForm({ title, heading }) {
         e.preventDefault();
 
         try {
-            // Save data to Firebase "quotation" collection
             await addDoc(collection(db, 'quotation'), formData);
-            toast.success('Your quote request was submitted successfully!');
+            toast.success(t('toast_success')); // Success message
             setFormData({ fullname: '', email: '', phone: '', subject: '', message: '' });
         } catch (error) {
             console.error('Error adding document: ', error);
-            toast.error('Failed to submit the quote. Please try again.');
+            toast.error(t('toast_error')); // Error message
         }
     };
 
@@ -40,8 +42,8 @@ function ContactForm({ title, heading }) {
             <div className="container">
                 <div className="row">
                     <div className="col-12 text-center mb-20">
-                        <span>{title}</span>
-                        <h1>{heading}</h1>
+                        <span>{t('contact_form_title')}</span>
+                        <h1>{t('contact_form_heading')}</h1>
                     </div>
 
                     <div className="col-12 col-lg-12">
@@ -50,8 +52,8 @@ function ContactForm({ title, heading }) {
                                 <FormInput
                                     type="text"
                                     labelFor="fullname"
-                                    label="Full Name"
-                                    placeholder="Enter Name"
+                                    label={t('contact_form_fullname_label')}
+                                    placeholder={t('contact_form_fullname_placeholder')}
                                     id="fullname"
                                     value={formData.fullname}
                                     onChange={onChangeHandler}
@@ -59,8 +61,8 @@ function ContactForm({ title, heading }) {
                                 <FormInput
                                     type="email"
                                     labelFor="email"
-                                    label="Email Address"
-                                    placeholder="Enter Email Address"
+                                    label={t('contact_form_email_label')}
+                                    placeholder={t('contact_form_email_placeholder')}
                                     id="email"
                                     value={formData.email}
                                     onChange={onChangeHandler}
@@ -68,8 +70,8 @@ function ContactForm({ title, heading }) {
                                 <FormInput
                                     type="text"
                                     labelFor="phone"
-                                    label="Phone Number"
-                                    placeholder="Enter Number"
+                                    label={t('contact_form_phone_label')}
+                                    placeholder={t('contact_form_phone_placeholder')}
                                     id="phone"
                                     value={formData.phone}
                                     onChange={onChangeHandler}
@@ -77,8 +79,8 @@ function ContactForm({ title, heading }) {
                                 <FormInput
                                     type="text"
                                     labelFor="subject"
-                                    label="Subject"
-                                    placeholder="Enter Subject"
+                                    label={t('contact_form_subject_label')}
+                                    placeholder={t('contact_form_subject_placeholder')}
                                     id="subject"
                                     value={formData.subject}
                                     onChange={onChangeHandler}
@@ -86,10 +88,12 @@ function ContactForm({ title, heading }) {
 
                                 <div className="col-md-12 col-12">
                                     <div className="single-personal-info">
-                                        <label htmlFor="message">Enter Message</label>
+                                        <label htmlFor="message">
+                                            {t('contact_form_message_label')}
+                                        </label>
                                         <textarea
                                             id="message"
-                                            placeholder="Enter message"
+                                            placeholder={t('contact_form_message_placeholder')}
                                             value={formData.message}
                                             onChange={onChangeHandler}
                                         />
@@ -100,7 +104,7 @@ function ContactForm({ title, heading }) {
                                     <input
                                         className="submit-btn"
                                         type="submit"
-                                        value="Get A Quote"
+                                        value={t('submit_btn_text')}
                                     />
                                 </div>
                             </form>

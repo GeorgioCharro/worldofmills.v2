@@ -4,29 +4,26 @@ const processItemData = [
     {
         id: uuidv4(),
         number: '01',
-        heading: 'Consultation and Project Planning',
-        text: 'We begin with in-depth discussions to understand your production needs, ensuring our solutions are tailored to meet your business objectives.',
+        heading: 'process_step_1_heading',
+        text: 'process_step_1_text',
     },
-
     {
         id: uuidv4(),
         number: '02',
-        heading: 'Collaborative Design and Development',
-        text: 'Our team works closely with you to design custom food machinery and automation solutions, ensuring every detail aligns with your production goals.',
+        heading: 'process_step_2_heading',
+        text: 'process_step_2_text',
     },
-
     {
         id: uuidv4(),
         number: '03',
-        heading: 'Installation, Testing, and Optimization',
-        text: 'We handle the installation, rigorous testing, and fine-tuning of the equipment to guarantee smooth operations and optimal performance.',
+        heading: 'process_step_3_heading',
+        text: 'process_step_3_text',
     },
-
     {
         id: uuidv4(),
         number: '04',
-        heading: 'Ongoing Support and Maintenance',
-        text: 'Our commitment doesn’t end with delivery. We offer continuous support, maintenance services, and upgrades to ensure long-term success.',
+        heading: 'process_step_4_heading',
+        text: 'process_step_4_text',
     },
 ];
 

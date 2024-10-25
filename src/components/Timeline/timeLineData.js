@@ -1,5 +1,5 @@
 import { BsAward, BsTrophy } from 'react-icons/bs';
-import { FaDollarSign, FaRegBuilding, FaToolbox, FaGlobe } from 'react-icons/fa'; // Replaced with FaGlobe for website launch
+import { FaDollarSign, FaRegBuilding, FaToolbox, FaGlobe } from 'react-icons/fa';
 import { v4 as uuidv4 } from 'uuid';
 
 const timeLineData = [
@@ -7,62 +7,56 @@ const timeLineData = [
         id: uuidv4(),
         year: 1990,
         icon: <BsAward />,
-        heading: 'Establishment of World of Mills',
-        text: 'World of Mills began its journey, focusing on food machinery and industrial solutions for the food production industry.',
+        heading: 'establishment_heading',
+        text: 'establishment_text',
         transform: '',
     },
-
     {
         id: uuidv4(),
         year: 2000,
         icon: <BsTrophy />,
-        heading: 'Major Industry Award',
-        text: 'World of Mills was recognized for excellence in food machinery innovation, setting the stage for further growth.',
+        heading: 'award_heading',
+        text: 'award_text',
         transform: 'transform-bottom',
     },
-
     {
         id: uuidv4(),
         year: 2005,
         icon: <FaToolbox />,
-        heading: 'Expanded to Custom Machinery Solutions',
-        text: 'We began offering customized food machinery solutions tailored to meet the needs of different industries and businesses.',
+        heading: 'tailored_machinery_heading', // Updated Key
+        text: 'tailored_machinery_text', // Updated Key
         transform: '',
     },
-
     {
         id: uuidv4(),
         year: 2010,
         icon: <FaRegBuilding />,
-        heading: 'New Facility and Production Line Expansion',
-        text: 'To meet growing demand, we opened a new facility and expanded our production lines to offer larger-scale automation solutions.',
+        heading: 'facility_heading',
+        text: 'facility_text',
         transform: 'transform-bottom',
     },
-
     {
         id: uuidv4(),
         year: 2015,
         icon: <BsTrophy />,
-        heading: 'Recognized as Industry Leader',
-        text: 'World of Mills was awarded Best Machinery Supplier of the Year for its innovative approach to food machinery and automation.',
+        heading: 'industry_leader_heading',
+        text: 'industry_leader_text',
         transform: '',
     },
-
     {
         id: uuidv4(),
         year: 2016,
         icon: <FaGlobe />,
-        heading: 'Launch of World of Mills Website',
-        text: 'We launched our official website to better serve customers and showcase our wide range of food machines and automation solutions.',
+        heading: 'website_launch_heading',
+        text: 'website_launch_text',
         transform: 'transform-bottom',
     },
-
     {
         id: uuidv4(),
         year: 2020,
         icon: <FaDollarSign />,
-        heading: 'Entered New Markets and Expanded Services',
-        text: 'World of Mills expanded into international markets, offering new machinery solutions and services to meet global demand.',
+        heading: 'new_markets_heading',
+        text: 'new_markets_text',
         transform: '',
     },
 ];

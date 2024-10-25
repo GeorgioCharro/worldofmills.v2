@@ -2,7 +2,6 @@ import { toast } from "react-toastify";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 function SignIn() {
   const [formData, setFormData] = useState({
@@ -39,20 +38,9 @@ function SignIn() {
     }
   };
 
-  const handleBackClick = () => {
-    navigate("/"); // Go back to the previous page
-  };
-
   return (
     <>
-      <div className="w-full border rounded-xl shadow-lg">
-        <button className="m-2 text-yellow-500" onClick={handleBackClick}>
-          <ArrowBackIcon sx={{ width: 40, height: 40 }} />{" "}
-          {/* Increased size here */}
-        </button>
-      </div>
-
-      <div className="flex items-center mb-32">
+      <div className="flex items-center mb-32 mt-10">
         <div className="h-max mx-auto flex flex-col items-center">
           <form onSubmit={onSubmit}>
             <h1 className="text-xl font-bold text-center  mt-10">

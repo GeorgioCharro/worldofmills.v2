@@ -2,8 +2,11 @@ import React from 'react';
 import { BsArrowRight } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import heroImg from '../../assets/img/home3/hero-3.jpg';
+import { useTranslation } from "react-i18next";
 
 function Hero3() {
+    const { t } = useTranslation(); // Access the translation function
+
     return (
         <section className="hero-slide-wrapper hero-3">
             <div className="slide-items">
@@ -12,8 +15,8 @@ function Hero3() {
                         <div className="row align-items-center text-center text-xl-start">
                             <div className="col-12 col-lg-8 offset-lg-2 offset-xl-0 col-xl-7">
                                 <div className="hero-contents">
-                                    <p>Welcome To Our Industry Website</p>
-                                    <h1>We help make vision tangible.</h1>
+                                    <p>{t("innovative_food_processing_solutions")}</p> 
+                                    <h1>{t("advanced_machinery_modern_food_industry")}</h1> 
                                     <Link 
                                         to="/services" 
                                         className="theme-btn theme-3"
@@ -21,18 +24,18 @@ function Hero3() {
                                             display: 'inline-flex',
                                             alignItems: 'center',
                                             justifyContent: 'center',
-                                            whiteSpace: 'nowrap', // Prevent text from wrapping
-                                            gap: '8px', // Space between text and icon
+                                            whiteSpace: 'nowrap',
+                                            gap: '8px',
                                         }}
                                     >
-                                        Our Services <BsArrowRight />
+                                        {t("our_services")} <BsArrowRight />
                                     </Link>
                                     <Link 
                                         to="/about" 
                                         className="theme-btn theme-3"
-                                        style={{ marginLeft: '15px' }} // Optional spacing for alignment
+                                        style={{ marginLeft: '15px' }}
                                     >
-                                        Learn More
+                                        {t("learn_more")}
                                     </Link>
                                 </div>
                             </div>

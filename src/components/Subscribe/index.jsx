@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { FaComments } from 'react-icons/fa';
 import { collection, addDoc } from 'firebase/firestore';
-import { toast } from 'react-toastify'; // Import toast directly
-import { db } from '../../firebase.config'; // Import Firestore instance
+import { toast } from 'react-toastify';
+import { db } from '../../firebase.config';
 import bg from '../../assets/img/subscribe_bg.jpg';
 import img from '../../assets/img/subscribe_left_bg.jpg';
+import { useTranslation } from 'react-i18next'; // Import useTranslation
 
 function Subscribe() {
+    const { t } = useTranslation(); // Access translation function
     const [email, setEmail] = useState('');
 
     const onChangeHandler = (e) => setEmail(e.target.value);
@@ -16,11 +18,11 @@ function Subscribe() {
 
         try {
             await addDoc(collection(db, 'newsletter'), { email });
-            toast.success('Subscribed successfully!');
+            toast.success(t('subscription_success')); // Display success message
             setEmail(''); // Clear the input field
         } catch (error) {
             console.error('Error adding document: ', error);
-            toast.error('Subscription failed. Please try again.');
+            toast.error(t('subscription_failure')); // Display failure message
         }
     };
 
@@ -50,10 +52,8 @@ function Subscribe() {
                                 <FaComments style={{ fontSize: '40px', color: 'black' }} />
                             </div>
 
-                            <h1 className="text-3xl font-bold">Get Weekly Newsletter</h1>
-                            <p className="text-lg">
-                                Get your answer directly or receive weekly updates.
-                            </p>
+                            <h1 className="text-3xl font-bold">{t('subscribe_heading')}</h1>
+                            <p className="text-lg">{t('subscribe_desc')}</p>
 
                             <div className="subscribe-form w-full">
                                 <form
@@ -64,7 +64,7 @@ function Subscribe() {
                                         value={email}
                                         onChange={onChangeHandler}
                                         type="email"
-                                        placeholder="Enter email address"
+                                        placeholder={t('enter_email_placeholder')}
                                         required
                                         className="p-3 flex-1 rounded-l-md border text-white border-gray-300 text-black"
                                     />
@@ -72,7 +72,7 @@ function Subscribe() {
                                         className="submit-btn bg-blue-600 text-white px-6 rounded-r-md hover:bg-blue-700 transition duration-300"
                                         type="submit"
                                     >
-                                        Subscribe Now
+                                        {t('subscribe_button')}
                                     </button>
                                 </form>
                             </div>
