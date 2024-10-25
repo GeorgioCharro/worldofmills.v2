@@ -1,8 +1,8 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
+
 import React, { useState } from 'react';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../../firebase.config'; // Firestore instance
-import { toast } from 'react-toastify'; // Toast notifications
+import { toast } from 'react-toastify';
 import FormInput from './FormInput';
 import { useTranslation } from 'react-i18next'; // Import useTranslation
 

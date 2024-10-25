@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
+
 import React, { useState } from 'react';
 
 function FormInput({ labelFor, label, placeholder, id, type }) {
