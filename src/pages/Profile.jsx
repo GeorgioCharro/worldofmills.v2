@@ -65,7 +65,7 @@ function Profile() {
     imgFiles: [],
   });
 
-  const machineTypes = ["Feeder", "Filtering", "Halawi", "Chocolate", "Mills", "Nuts", "Tahina", "Thyme and Spices"];
+  const machineTypes = ["Feeder", "Filtering", "Halawi", "Chocolate", "Mills", "Nuts", "Tahina", "Thyme and Spices","Others"];
 
   const machineFields = [
     { id: "machineName", label: "Machine Name", type: "text", isArabic: false },

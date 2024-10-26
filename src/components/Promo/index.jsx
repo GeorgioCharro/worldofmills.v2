@@ -1,7 +1,7 @@
 import React from 'react';
 import { BsArrowRight } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
-import AgeImg from '../../assets/img/age.png';
+import AgeImg from '../../assets/img/age.webp';
 import { useTranslation } from "react-i18next";
 
 function Promo() {

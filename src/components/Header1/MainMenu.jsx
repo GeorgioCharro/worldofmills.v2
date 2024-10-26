@@ -1,6 +1,5 @@
 import React from "react";
 import { FaTh } from "react-icons/fa";
-import { FiSearch } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 function MainMenu({ hanldeOffset }) {
@@ -13,17 +12,6 @@ function MainMenu({ hanldeOffset }) {
             <ul className="flex items-center space-x-4">
               <li>
                 <Link to="/">Home</Link>
-                <ul className="sub-menu">
-                  <li>
-                    <Link to="/">home 1</Link>
-                  </li>
-                  <li>
-                    <Link to="/home-2">home 2</Link>
-                  </li>
-                  <li>
-                    <Link to="/home-3">home 3</Link>
-                  </li>
-                </ul>
               </li>
               <li>
                 <Link to="/about">About</Link>
