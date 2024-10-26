@@ -28,7 +28,7 @@ const MachineItem = ({ machine }) => {
   };
 
   return (
-    <div className="relative bg-white shadow-lg rounded-lg overflow-visible flex flex-col md:flex-row pt-10">
+    <div className="relative my-10 bg-white shadow-lg rounded-lg overflow-visible flex flex-col md:flex-row pt-10">
       {/* Machine Name Header */}
       <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#cfac6e] px-6 py-2 rounded-md shadow-lg z-10">
         <h2 className="text-xl font-bold text-black">{machineName}</h2>
