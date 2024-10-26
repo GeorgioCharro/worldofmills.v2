@@ -8,21 +8,6 @@ const menuData = [
         iconClosed: <CgChevronLeft />,
         iconOpened: <CgChevronDown />,
 
-        subNav: [
-            {
-                title: 'Home One',
-                path: '/',
-            },
-            {
-                title: 'Home Two',
-                path: '/home-2',
-            },
-
-            {
-                title: 'Home Three',
-                path: '/home-3',
-            },
-        ],
     },
 
     {
@@ -31,7 +16,7 @@ const menuData = [
     },
 
     {
-        title: 'Pages',
+        title: 'Category',
         path: '/',
 
         iconClosed: <CgChevronLeft />,
