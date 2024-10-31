@@ -255,5 +255,24 @@
   "contact_form_subject_placeholder": "أدخل الموضوع",
   "contact_form_message_label": "أدخل الرسالة",
   "contact_form_message_placeholder": "أدخل الرسالة",
-  "submit_btn_text": "احصل على عرض"
+  "submit_btn_text": "احصل على عرض",
+  "email_address": "worldofmills0@gmail.com",
+  "phone_number": "+971 52 621 1664",
+  "contact_us": "اتصل بنا",
+  "menu": {
+    "home": "الرئيسية",
+    "about": "حول",
+    "category": "الفئة",
+    "thyme_and_spices": "زعتر وتوابل",
+    "nuts": "مكسرات",
+    "chocolate": "شوكولاتة",
+    "dairy": "منتجات الألبان",
+    "filling_machines": "آلات التعبئة",
+    "filtering": "ترشيح",
+    "stainless": "ستانلس ستيل",
+    "tahina": "طحينة",
+    "others": "أخرى",
+    "services": "خدمات",
+    "contact": "اتصل بنا"
+  }
 }

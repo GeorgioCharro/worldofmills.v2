@@ -250,6 +250,26 @@
   "contact_form_subject_placeholder": "Enter Subject",
   "contact_form_message_label": "Enter Message",
   "contact_form_message_placeholder": "Enter message",
-  "submit_btn_text": "Get A Quote"
+  "submit_btn_text": "Get A Quote",
+  "email_address": "worldofmills0@gmail.com",
+  "phone_number": "+971 52 621 1664",
+  "contact_us": "Contact Us",
+  "menu": {
+    "home": "Home",
+    "about": "About",
+    "category": "Category",
+    "thyme_and_spices": "Thyme And Spices",
+    "nuts": "Nuts",
+    "chocolate": "Chocolate",
+    "dairy": "Dairy",
+    "filling_machines": "Filling Machines",
+    "filtering": "Filtering",
+    "stainless": "Stainless",
+    "tahina": "Tahina",
+    "others": "Others",
+    "services": "Services",
+    "contact": "Contact"
+  }
+
   
 }

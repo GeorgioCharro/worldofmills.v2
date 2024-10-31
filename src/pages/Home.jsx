@@ -1,7 +1,5 @@
 import React from "react";
-
 import Services1 from "../components/Services1";
-
 import Portfolio1 from "../components/Portfolio1";
 import Promo from "../components/Promo";
 import Faq from "../components/Faq";
@@ -32,191 +30,44 @@ import Hero3 from "../components/Hero3";
 function Home() {
   const { t } = useTranslation();
 
+  const categories = [
+    { path: "/category/Thyme and Spices", image: ThymeImage, label: "Thyme And Spices" },
+    { path: "/category/Nuts", image: NutsImage, label: "Nuts" },
+    { path: "/category/Feeder", image: AnimalFoodImage, label: "Animal Feed Production Lines" },
+    { path: "/category/Chocolate", image: ChocolateImage, label: "Chocolate Machines" },
+    { path: "/category/Dairy", image: DairyImage, label: "Dairy" },
+    { path: "/category/Filling", image: FillingImage, label: "Filling Machines" },
+    { path: "/category/Filtering", image: FilteringImage, label: "Filtering Machines" },
+    { path: "/category/Mills", image: SpicesImage, label: "Mills" },
+    { path: "/category/Stainless", image: StainlessImage, label: "Stainless Steel" },
+    { path: "/category/Tahina", image: TahiniImage, label: "Tahini and Halawi" },
+    { path: "/category/Others", image: OthersImage, label: "Others" }
+  ];
+
   return (
     <>
       <Hero3 />
       <Promo />
 
-      <div className="p-8 bg-gray-100 rounded-lg shadow-xl mt-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          <div className="flex flex-col items-center justify-center p-4 shadow-lg rounded-lg bg-white hover:shadow-xl transition-shadow duration-300">
-            <RouterLink to={"/category/Thyme and Spices"}>
-              <div className="w-full h-48 overflow-hidden rounded-t-lg">
-                <img
-                  src={ThymeImage}
-                  alt="ThymeAndSpices"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="p-4 #cfac6e w-full">
-                <h2 className="text-lg font-bold text-center">
-                  {t("Thyme And Spices")}
-                </h2>
-              </div>
-            </RouterLink>
-          </div>
-
-          <div className="flex flex-col items-center justify-center p-4 shadow-lg rounded-lg bg-white hover:shadow-xl transition-shadow duration-300">
-            <RouterLink to={"/category/Nuts"}>
-              <div className="w-full h-48 overflow-hidden rounded-t-lg">
-                <img
-                  src={NutsImage}
-                  alt="NutsImage"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="p-4 #cfac6e w-full">
-                <h2 className="text-lg font-bold text-center">{t("Nuts")}</h2>
-              </div>
-            </RouterLink>
-          </div>
-
-          <div className="flex flex-col items-center justify-center p-4 shadow-lg rounded-lg bg-white hover:shadow-xl transition-shadow duration-300">
-            <RouterLink to={"/category/Feeder"}>
-              <div className="w-full h-48 overflow-hidden rounded-t-lg">
-                <img
-                  src={AnimalFoodImage}
-                  alt="AnimalFood"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="p-4 #cfac6e w-full">
-                <h2 className="text-lg font-bold text-center">
-                  {t("Animal Feed Production Lines")}
-                </h2>
-              </div>
-            </RouterLink>
-          </div>
-
-          <div className="flex flex-col items-center justify-center p-4 shadow-lg rounded-lg bg-white hover:shadow-xl transition-shadow duration-300">
-            <RouterLink to={"/category/Chocolate"}>
-              <div className="w-full h-48 overflow-hidden rounded-t-lg">
-                <img
-                  src={ChocolateImage}
-                  alt="Chocolate"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="p-4 #cfac6e w-full">
-                <h2 className="text-lg font-bold text-center">
-                  {t("Chocolate Machines")}
-                </h2>
-              </div>
-            </RouterLink>
-          </div>
-
-          <div className="flex flex-col items-center justify-center p-4 shadow-lg rounded-lg bg-white hover:shadow-xl transition-shadow duration-300">
-            <RouterLink to={"/category/Dairy"}>
-              <div className="w-full h-48 overflow-hidden rounded-t-lg">
-                <img
-                  src={DairyImage}
-                  alt="Dairy"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="p-4 #cfac6e w-full">
-                <h2 className="text-lg font-bold text-center">{t("Dairy")}</h2>
-              </div>
-            </RouterLink>
-          </div>
-
-          <div className="flex flex-col items-center justify-center p-4 shadow-lg rounded-lg bg-white hover:shadow-xl transition-shadow duration-300">
-            <RouterLink to={"/category/Filling"}>
-              <div className="w-full h-48 overflow-hidden rounded-t-lg">
-                <img
-                  src={FillingImage}
-                  alt="Filling"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="p-4 #cfac6e w-full">
-                <h2 className="text-lg font-bold text-center">
-                  {t("Filling Machines")}
-                </h2>
-              </div>
-            </RouterLink>
-          </div>
-
-          <div className="flex flex-col items-center justify-center p-4 shadow-lg rounded-lg bg-white hover:shadow-xl transition-shadow duration-300">
-            <RouterLink to={"/category/Filtering"}>
-              <div className="w-full h-48 overflow-hidden rounded-t-lg">
-                <img
-                  src={FilteringImage}
-                  alt="Filtering"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="p-4 #cfac6e w-full">
-                <h2 className="text-lg font-bold text-center">
-                  {t("Filtering Machines")}
-                </h2>
-              </div>
-            </RouterLink>
-          </div>
-
-          <div className="flex flex-col items-center justify-center p-4 shadow-lg rounded-lg bg-white hover:shadow-xl transition-shadow duration-300">
-            <RouterLink to={"/category/Mills"}>
-              <div className="w-full h-48 overflow-hidden rounded-t-lg">
-                <img
-                  src={SpicesImage}
-                  alt="MillsImage"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="p-4 #cfac6e w-full">
-                <h2 className="text-lg font-bold text-center">{t("Mills")}</h2>
-              </div>
-            </RouterLink>
-          </div>
-
-          <div className="flex flex-col items-center justify-center p-4 shadow-lg rounded-lg bg-white hover:shadow-xl transition-shadow duration-300">
-            <RouterLink to={"/category/Stainless"}>
-              <div className="w-full h-48 overflow-hidden rounded-t-lg">
-                <img
-                  src={StainlessImage}
-                  alt="Stainless Steel"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="p-4 #cfac6e w-full">
-                <h2 className="text-lg font-bold text-center">
-                  {t("Stainless Steel")}
-                </h2>
-              </div>
-            </RouterLink>
-          </div>
-
-          <div className="flex flex-col items-center justify-center p-4 shadow-lg rounded-lg bg-white hover:shadow-xl transition-shadow duration-300">
-            <RouterLink to={"/category/Tahina"}>
-              <div className="w-full h-48 overflow-hidden rounded-t-lg">
-                <img
-                  src={TahiniImage}
-                  alt="Tahini and Halawi"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="p-4 #cfac6e w-full">
-                <h2 className="text-lg font-bold text-center">
-                  {t("Tahini and Halawi")}
-                </h2>
-              </div>
-            </RouterLink>
-          </div>
-
-          <div className="flex flex-col items-center justify-center p-4 shadow-lg rounded-lg bg-white hover:shadow-xl transition-shadow duration-300">
-            <RouterLink to={"/category/Others"}>
-              <div className="w-full h-48 overflow-hidden rounded-t-lg">
-                <img
-                  src={OthersImage}
-                  alt="Others"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="p-4 #cfac6e w-full">
-                <h2 className="text-lg font-bold text-center">{t("Others")}</h2>
-              </div>
-            </RouterLink>
-          </div>
+      <div className="p-4 bg-gray-100 rounded-lg shadow-xl mt-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5  gap-6">
+          {categories.map((category, index) => (
+            <div key={index} className="flex flex-col items-center justify-center shadow-lg rounded-lg max-w-sm bg-white hover:shadow-xl transition-shadow duration-300">
+              <RouterLink
+                to={category.path}
+                className="w-full h-48 rounded-lg bg-cover bg-center flex flex-col justify-end"
+                style={{
+                  backgroundImage: `url(${category.image})`,
+                }}
+              >
+                <div className="bg-black bg-opacity-60 p-2 w-full text-center rounded-b-lg">
+                  <h2 className="text-lg font-bold text-white">
+                    {t(category.label)}
+                  </h2>
+                </div>
+              </RouterLink>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -229,6 +80,7 @@ function Home() {
       <Portfolio1 />
       <Analytics />
       <Subscribe />
+
       <div className="bg-[#cfac6e] mt-100 mb-100 py-12">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center text-white">
           <div className="flex flex-col items-center">
@@ -254,6 +106,7 @@ function Home() {
           </div>
         </div>
       </div>
+
       <Element id="learnmore" name="learnmore">
         <div
           className="relative bg-cover bg-center h-96"

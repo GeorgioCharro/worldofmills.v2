@@ -24,19 +24,43 @@ const menuData = [
 
         subNav: [
             {
-                title: 'Team',
-                path: '/team',
+                title: 'Thyme And Spices',
+                path: '/category/Thyme%20and%20Spices',
                 cName: 'sub-nav',
             },
             {
-                title: 'Faq',
-                path: '/faq',
+                title: 'Nuts',
+                path: '/category/nuts',
                 cName: 'sub-nav',
             },
             {
-                title: 'Projects',
-                path: '/projects',
+                title: 'Chocolate',
+                path: '/category/Chocolate',
             },
+            {
+                title: 'Dairy',
+                path: '/category/dairy',
+            },
+            {
+                title: 'Filling Machines',
+                path: '/category/Filling',
+            },
+            {
+                title: 'Filtering',
+                path: '/category/Filtering',
+            },
+            {
+                title: 'Stainless',
+                path: '/category/Stainless',
+            },
+            {
+                title: 'Tahina',
+                path: '/category/Tahina',
+            },
+            {
+                title: 'Others',
+                path: '/category/Others',
+            }
         ],
     },
 
@@ -45,10 +69,6 @@ const menuData = [
         path: '/services',
     },
 
-    {
-        title: 'News',
-        path: '/news',
-    },
 
     {
         title: 'Contact',

@@ -1,8 +1,7 @@
-/* eslint-disable no-nested-ternary */
-/* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { useTranslation } from "react-i18next";
 
 const SidebarLink = styled(Link)`
     display: flex;
@@ -46,6 +45,7 @@ const DropdownLink = styled(Link)`
 `;
 
 const SubMenu = ({ item }) => {
+    const { t } = useTranslation();
     const [subnav, setSubnav] = useState(false);
 
     const showSubnav = () => setSubnav(!subnav);
@@ -65,7 +65,9 @@ const SubMenu = ({ item }) => {
                 item.subNav.map((data, index) => (
                     <DropdownLink to={data.path} key={index}>
                         {item.icon}
-                        <SidebarLabel>{data.title}</SidebarLabel>
+                        <SidebarLabel>
+                            {t(`menu.${data.title.toLowerCase().replace(/ /g, "_")}`)}
+                        </SidebarLabel>
                     </DropdownLink>
                 ))}
         </>

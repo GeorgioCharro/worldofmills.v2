@@ -37,7 +37,7 @@ function ServicesOneCard({ bgImg, icon, heading, btnText }) {
 
                 {/* Button with Inline-Flex for Alignment */}
                 <Link
-                    to="/services-details"
+                    to="/services"
                     className="inline-flex items-center space-x-2 text-blue-600 hover:underline"
                     style={{
                         display: 'inline-flex',

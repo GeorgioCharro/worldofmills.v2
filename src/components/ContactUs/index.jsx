@@ -19,6 +19,7 @@ function ContactUs() {
               icon={data.icon}
               item1={data.item1}
               item2={data.item2}
+              link={data.link}
             />
           ))}
         </div>
