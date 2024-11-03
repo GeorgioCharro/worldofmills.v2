@@ -31,17 +31,40 @@ function Home() {
   const { t } = useTranslation();
 
   const categories = [
-    { path: "/category/Thyme and Spices", image: ThymeImage, label: "Thyme And Spices" },
+    {
+      path: "/category/Thyme and Spices",
+      image: ThymeImage,
+      label: "Thyme And Spices",
+    },
     { path: "/category/Nuts", image: NutsImage, label: "Nuts" },
-    { path: "/category/Feeder", image: AnimalFoodImage, label: "Animal Feed Production Lines" },
-    { path: "/category/Chocolate", image: ChocolateImage, label: "Chocolate Machines" },
+    {
+      path: "/category/Feeder",
+      image: AnimalFoodImage,
+      label: "Animal Feed Production Lines",
+    },
+    {
+      path: "/category/Chocolate",
+      image: ChocolateImage,
+      label: "Chocolate Machines",
+    },
     { path: "/category/Dairy", image: DairyImage, label: "Dairy" },
-    { path: "/category/Filling", image: FillingImage, label: "Filling Machines" },
-    { path: "/category/Filtering", image: FilteringImage, label: "Filtering Machines" },
+    {
+      path: "/category/Filling",
+      image: FillingImage,
+      label: "Filling Machines",
+    },
+    {
+      path: "/category/Filtering",
+      image: FilteringImage,
+      label: "Filtering Machines",
+    },
     { path: "/category/Mills", image: SpicesImage, label: "Mills" },
-    { path: "/category/Stainless", image: StainlessImage, label: "Stainless Steel" },
-    { path: "/category/Tahina", image: TahiniImage, label: "Tahini and Halawi" },
-    { path: "/category/Others", image: OthersImage, label: "Others" }
+
+    {
+      path: "/category/Tahina",
+      image: TahiniImage,
+      label: "Tahini and Halawi",
+    },
   ];
 
   return (
@@ -52,7 +75,10 @@ function Home() {
       <div className="p-4 bg-gray-100 rounded-lg shadow-xl mt-8">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5  gap-6">
           {categories.map((category, index) => (
-            <div key={index} className="flex flex-col items-center justify-center shadow-lg rounded-lg max-w-sm bg-white hover:shadow-xl transition-shadow duration-300">
+            <div
+              key={index}
+              className="flex flex-col items-center justify-center shadow-lg rounded-lg max-w-sm bg-white hover:shadow-xl transition-shadow duration-300"
+            >
               <RouterLink
                 to={category.path}
                 className="w-full h-48 rounded-lg bg-cover bg-center flex flex-col justify-end"

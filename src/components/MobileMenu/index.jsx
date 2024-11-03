@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import * as AiIcons from "react-icons/ai";
 import { AiOutlineBars } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import MenuContent from "./MenuContent";
 import { useTranslation } from "react-i18next";
+import { LanguageContext } from "../../contexts/LanguageContext"; // Import LanguageContext
 import menuData from "./menuData";
 import SubMenu from "./SubMenu";
 
@@ -18,7 +19,7 @@ const NavIcon = styled(Link)`
 
 const MobileMenuContainer = styled.div`
   position: relative;
-  z-index: 10001; /* Ensures the sidebar is on top */
+  z-index: 10001;
 `;
 
 const SidebarNav = styled.nav`
@@ -27,9 +28,6 @@ const SidebarNav = styled.nav`
   height: 100%;
   position: fixed;
   overflow-y: scroll;
-  scroll-behavior: smooth;
-  -webkit-scroll-behavior: smooth;
-  box-shadow: 0 13px 35px -12px rgba(35, 35, 35, 0.15);
   top: 0;
   right: ${({ sidebar }) => (sidebar ? "0" : "-100%")};
   transition: 350ms;
@@ -40,11 +38,26 @@ const SidebarWrap = styled.div`
   width: 100%;
 `;
 
+const LanguageSelect = styled.form`
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  color: white;
+`;
+
 const MobileMenu = () => {
   const { t } = useTranslation();
+  const { language, toggleLanguage } = useContext(LanguageContext); // Access language and toggle function
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
+
+  const handleLanguageChange = (e) => {
+    const selectedLanguage = e.target.value;
+    if ((selectedLanguage === "ar" && language !== "ar") || (selectedLanguage === "en" && language !== "en")) {
+      toggleLanguage();
+    }
+  };
 
   return (
     <MobileMenuContainer>
@@ -78,6 +91,23 @@ const MobileMenu = () => {
             />
           ))}
           <MenuContent />
+          <LanguageSelect>
+            <select
+              id="lan"
+              value={language}
+              onChange={handleLanguageChange}
+              style={{
+                backgroundColor: "black",
+                color: "white",
+                border: "1px solid white",
+                padding: "5px",
+                borderRadius: "5px"
+              }}
+            >
+              <option value="en">{t("language_english")}</option>
+              <option value="ar">{t("language_arabic")}</option>
+            </select>
+          </LanguageSelect>
         </SidebarWrap>
       </SidebarNav>
     </MobileMenuContainer>
