@@ -65,7 +65,17 @@ function Profile() {
     imgFiles: [],
   });
 
-  const machineTypes = ["Feeder", "Filtering", "Halawi", "Chocolate", "Mills", "Nuts", "Tahina", "Thyme and Spices","Others"];
+  const machineTypes = [
+    "Feeder",
+    "Filtering",
+    "Halawi",
+    "Chocolate",
+    "Mills",
+    "Nuts",
+    "Tahina",
+    "Thyme and Spices",
+    "Dairy",
+  ];
 
   const machineFields = [
     { id: "machineName", label: "Machine Name", type: "text", isArabic: false },
@@ -114,22 +124,103 @@ function Profile() {
       type: "text",
       isArabic: true,
     },
-    { id: "FanMotor", label: "Fan Motor (HP)", type: "number", isArabic: false, isMotor: true },
+    {
+      id: "FanMotor",
+      label: "Fan Motor (HP)",
+      type: "number",
+      isArabic: false,
+      isMotor: true,
+    },
     { id: "FanMotorAr", label: "Fan Motor", type: "text", isArabic: true },
-    { id: "VibratorMotor", label: "Vibrator Motor (HP)", type: "number", isArabic: false, isMotor: true },
-    { id: "VibratorMotorAr", label: "Vibrator Motor", type: "text", isArabic: true },
-    { id: "RoasteryMotor", label: "Roastery Motor (HP)", type: "number", isArabic: false, isMotor: true },
-    { id: "RoasteryMotorAr", label: "Roastery Motor", type: "text", isArabic: true },
-    { id: "HeatingSystem", label: "Heating System", type: "text", isArabic: false },
-    { id: "HeatingSystemAr", label: "Heating System", type: "text", isArabic: true },
-    { id: "productionCapacity", label: "Production Capacity", type: "text", isArabic: false },
-    { id: "productionCapacityAr", label: "Production Capacity", type: "text", isArabic: true },
-    { id: "rotationMotorPower", label: "Rotation Motor Power (HP)", type: "number", isArabic: false, isMotor: true },
-    { id: "rotationMotorPowerAr", label: "Rotation Motor Power", type: "text", isArabic: true },
-    { id: "craneMotorPower", label: "Crane Motor Power (HP)", type: "number", isArabic: false, isMotor: true },
-    { id: "craneMotorPowerAr", label: "Crane Motor Power", type: "text", isArabic: true },
-    { id: "flippingMotorPower", label: "Flipping Motor Power (HP)", type: "number", isArabic: false, isMotor: true },
-    { id: "flippingMotorPowerAr", label: "Flipping Motor Power", type: "text", isArabic: true },
+    {
+      id: "VibratorMotor",
+      label: "Vibrator Motor (HP)",
+      type: "number",
+      isArabic: false,
+      isMotor: true,
+    },
+    {
+      id: "VibratorMotorAr",
+      label: "Vibrator Motor",
+      type: "text",
+      isArabic: true,
+    },
+    {
+      id: "RoasteryMotor",
+      label: "Roastery Motor (HP)",
+      type: "number",
+      isArabic: false,
+      isMotor: true,
+    },
+    {
+      id: "RoasteryMotorAr",
+      label: "Roastery Motor",
+      type: "text",
+      isArabic: true,
+    },
+    {
+      id: "HeatingSystem",
+      label: "Heating System",
+      type: "text",
+      isArabic: false,
+    },
+    {
+      id: "HeatingSystemAr",
+      label: "Heating System",
+      type: "text",
+      isArabic: true,
+    },
+    {
+      id: "productionCapacity",
+      label: "Production Capacity",
+      type: "text",
+      isArabic: false,
+    },
+    {
+      id: "productionCapacityAr",
+      label: "Production Capacity",
+      type: "text",
+      isArabic: true,
+    },
+    {
+      id: "rotationMotorPower",
+      label: "Rotation Motor Power (HP)",
+      type: "number",
+      isArabic: false,
+      isMotor: true,
+    },
+    {
+      id: "rotationMotorPowerAr",
+      label: "Rotation Motor Power",
+      type: "text",
+      isArabic: true,
+    },
+    {
+      id: "craneMotorPower",
+      label: "Crane Motor Power (HP)",
+      type: "number",
+      isArabic: false,
+      isMotor: true,
+    },
+    {
+      id: "craneMotorPowerAr",
+      label: "Crane Motor Power",
+      type: "text",
+      isArabic: true,
+    },
+    {
+      id: "flippingMotorPower",
+      label: "Flipping Motor Power (HP)",
+      type: "number",
+      isArabic: false,
+      isMotor: true,
+    },
+    {
+      id: "flippingMotorPowerAr",
+      label: "Flipping Motor Power",
+      type: "text",
+      isArabic: true,
+    },
   ];
 
   const onLogout = () => {
@@ -165,39 +256,39 @@ function Profile() {
   const handleMachineChange = (e) => {
     const { id, value, files, type, checked } = e.target;
     if (id === "imgFiles") {
-        setMachineData((prevState) => ({
-            ...prevState,
-            imgFiles: Array.from(files),
-        }));
+      setMachineData((prevState) => ({
+        ...prevState,
+        imgFiles: Array.from(files),
+      }));
     } else if (type === "checkbox") {
-        setMachineData((prevState) => ({
-            ...prevState,
-            [id]: checked,
-        }));
+      setMachineData((prevState) => ({
+        ...prevState,
+        [id]: checked,
+      }));
     } else {
-        setMachineData((prevState) => {
-            const updatedState = {
-                ...prevState,
-                [id]: value,
-            };
-            // Automatically update the Arabic version only for motor fields
-            if (!id.endsWith("Ar") && id.includes("Motor")) {
-                const arabicFieldId = `${id}Ar`;
-                if (arabicFieldId in updatedState) {
-                    updatedState[arabicFieldId] = value;
-                }
-            }
-            return updatedState;
-        });
+      setMachineData((prevState) => {
+        const updatedState = {
+          ...prevState,
+          [id]: value,
+        };
+        // Automatically update the Arabic version only for motor fields
+        if (!id.endsWith("Ar") && id.includes("Motor")) {
+          const arabicFieldId = `${id}Ar`;
+          if (arabicFieldId in updatedState) {
+            updatedState[arabicFieldId] = value;
+          }
+        }
+        return updatedState;
+      });
     }
-};
+  };
 
   const storeImage = async (image) => {
     return new Promise((resolve, reject) => {
       const fileName = `${auth.currentUser.uid}-${image.name}-${uuidv4()}`;
       const storageRef = ref(storage, "images/" + fileName);
       const uploadTask = uploadBytesResumable(storageRef, image);
-  
+
       uploadTask.on(
         "state_changed",
         (snapshot) => {

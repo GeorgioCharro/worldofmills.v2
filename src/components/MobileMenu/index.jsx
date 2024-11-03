@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import MenuContent from "./MenuContent";
 import { useTranslation } from "react-i18next";
-import { LanguageContext } from "../../contexts/LanguageContext"; // Import LanguageContext
+import { LanguageContext } from "../../contexts/LanguageContext";
 import menuData from "./menuData";
 import SubMenu from "./SubMenu";
 
@@ -47,14 +47,19 @@ const LanguageSelect = styled.form`
 
 const MobileMenu = () => {
   const { t } = useTranslation();
-  const { language, toggleLanguage } = useContext(LanguageContext); // Access language and toggle function
+  const { language, toggleLanguage } = useContext(LanguageContext);
   const [sidebar, setSidebar] = useState(false);
 
-  const showSidebar = () => setSidebar(!sidebar);
+  const closeSidebar = () => setSidebar(false); // Explicitly close the sidebar
+
+  const toggleSidebar = () => setSidebar(!sidebar); // Toggle function
 
   const handleLanguageChange = (e) => {
     const selectedLanguage = e.target.value;
-    if ((selectedLanguage === "ar" && language !== "ar") || (selectedLanguage === "en" && language !== "en")) {
+    if (
+      (selectedLanguage === "ar" && language !== "ar") ||
+      (selectedLanguage === "en" && language !== "en")
+    ) {
       toggleLanguage();
     }
   };
@@ -66,7 +71,7 @@ const MobileMenu = () => {
         to="#"
         style={{ justifyContent: "flex-end" }}
       >
-        <AiOutlineBars onClick={showSidebar} />
+        <AiOutlineBars onClick={toggleSidebar} />
       </NavIcon>
 
       <SidebarNav sidebar={sidebar}>
@@ -78,16 +83,17 @@ const MobileMenu = () => {
                 fontSize: "18px",
                 justifyContent: "flex-start",
               }}
-              onClick={showSidebar}
+              onClick={toggleSidebar}
             />
           </NavIcon>
           {menuData.map((item, index) => (
             <SubMenu
               item={{
                 ...item,
-                title: t(`menu.${item.title.toLowerCase().replace(/ /g, "_")}`)
+                title: t(`menu.${item.title.toLowerCase().replace(/ /g, "_")}`),
               }}
               key={index}
+              closeSidebar={closeSidebar} // Pass closeSidebar as a prop
             />
           ))}
           <MenuContent />
@@ -101,7 +107,7 @@ const MobileMenu = () => {
                 color: "white",
                 border: "1px solid white",
                 padding: "5px",
-                borderRadius: "5px"
+                borderRadius: "5px",
               }}
             >
               <option value="en">{t("language_english")}</option>

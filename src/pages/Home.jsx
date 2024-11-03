@@ -34,7 +34,7 @@ function Home() {
     {
       path: "/category/Thyme and Spices",
       image: ThymeImage,
-      label: "Thyme And Spices",
+      label: "Thyme And Spices Machines",
     },
     { path: "/category/Nuts", image: NutsImage, label: "Nuts" },
     {
@@ -63,7 +63,7 @@ function Home() {
     {
       path: "/category/Tahina",
       image: TahiniImage,
-      label: "Tahini and Halawi",
+      label: "Tahini and Halawi Machines",
     },
   ];
 

@@ -51,7 +51,7 @@
   "What are the warranty terms for the machines?": "What are the warranty terms for the machines?",
   "All machines Food Machinery Manufacturing Company are guaranteed for a minimum of 3 years": "All machines from Food Machinery Manufacturing Company are guaranteed for a minimum of 3 years",
   "about_us": "About Us",
-  "footer_about_text": "WorldOfMills was founded in Lebanon, then moved to Dubai, and specializes in the food machinery industry. Through years of experience and dedication, we have established ourselves as a trusted company in this field. We provide innovative and high-quality solutions that meet the diverse needs of our clients. With our professional team and commitment to quality, we continue to expand and grow in global markets.",
+  "footer_about_text": "WorldOfMills was founded in Dubai, and specializes in the food machinery industry. Through years of experience and dedication, we have established ourselves as a trusted company in this field. We provide innovative and high-quality solutions that meet the diverse needs of our clients. With our professional team and commitment to quality, we continue to expand and grow in global markets.",
   "newsletter": "Newsletter",
   "newsletter_text": "Subscribe to our newsletter to get our latest updates & news.",
   "enter_email": "Enter email address",
@@ -108,7 +108,7 @@
   "client_organic_harvest": "Organic Harvest Inc.",
   "machinery_renewal_heading": "Machinery Renewal for Increased Production Efficiency",
   "machinery_renewal_desc": "World of Mills collaborated with Organic Harvest Inc. to renew their outdated food machineries. By upgrading their milling and packaging equipment, production efficiency increased by 30%, ensuring minimal downtime and optimized workflow for organic product manufacturing.",
-"toast_success":"Form Submitted",
+  "toast_success": "Form Submitted",
   "custom_machinery_solutions": "Custom Machinery Solutions",
   "client_greenfields": "GreenFields Ltd.",
   "custom_machinery_heading": "Custom Milling Equipment for Specialty Grain Production",
@@ -202,19 +202,19 @@
   "new_markets_text": "World of Mills expanded into international markets, offering new machinery solutions and services to meet global demand.",
   "custom_machinery_design_heading": "Custom Machinery Design",
   "custom_machinery_design_text": "We specialize in designing tailored food machines and industrial automation systems to meet the specific needs of your production processes.",
-  
+
   "machinery_manufacturing_heading": "Machinery Manufacturing & Assembly",
   "machinery_manufacturing_text": "World of Mills offers comprehensive manufacturing and assembly services for advanced food machinery, ensuring high precision and durability.",
-  
+
   "welding_services_heading": "Welding & Laser Cutting Services",
   "welding_services_text": "Our precision welding and laser cutting services support the customization and maintenance of industrial machinery components.",
-  
+
   "production_line_automation_heading": "Production Line Automation",
   "production_line_automation_text": "We provide complete automation solutions for food production lines, reducing manual labor and improving efficiency and consistency.",
-  
+
   "facility_optimization_heading": "Facility Layout & Optimization",
   "facility_optimization_text": "Optimize your manufacturing space with our facility layout services, ensuring seamless workflow and maximum production efficiency.",
-  
+
   "machinery_maintenance_heading": "Machinery Maintenance & Renewal",
   "machinery_maintenance_text": "We offer regular maintenance and renewal services to keep your machinery running at peak performance and extend equipment lifespan.",
   "process_title": "Our Company Work Process",
@@ -230,7 +230,7 @@
   "page_banner_contact_current_page": "Contact",
   "contact_form_title": "Write Message",
   "contact_form_heading": "Get In Touch",
-  
+
   "email_address_heading": "Email Address",
   "email_address_text": "Send mail anytime",
   "phone_number_heading": "Phone Number",
@@ -239,7 +239,7 @@
   "office_address_text": "Send mail anytime",
   "tiktok_page_heading": "Tiktok Page",
   "tiktok_page_text": "Check Our Tiktok Page",
-  
+
   "contact_form_fullname_label": "Full Name",
   "contact_form_fullname_placeholder": "Enter Name",
   "contact_form_email_label": "Email Address",
@@ -270,6 +270,4 @@
     "services": "Services",
     "contact": "Contact"
   }
-
-  
 }

@@ -21,7 +21,6 @@ const MachineItem = ({ machine }) => {
   const fanMotor = language === "ar" ? machine.FanMotorAr : machine.FanMotor;
   const roasteryMotor =
     language === "ar" ? machine.RoasteryMotorAr : machine.RoasteryMotor;
-
   // Helper function to render a table row only if the value is present and not "HP"
   const renderRow = (label, value) => {
     if (!value || value.trim() === "" || value.trim().toLowerCase() === "hp")
@@ -40,7 +39,9 @@ const MachineItem = ({ machine }) => {
     <div className="relative my-10 bg-white shadow-lg rounded-lg overflow-visible flex flex-col md:flex-row pt-10">
       {/* Machine Name Header */}
       <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#cfac6e] px-6 py-2 rounded-md shadow-lg z-10">
-        <h2 className="md:text-xl text-xs font-bold text-black">{machineName}</h2>
+        <h2 className="md:text-xl text-xs font-bold text-black">
+          {machineName}
+        </h2>
       </div>
 
       {/* Machine Details */}
@@ -50,13 +51,6 @@ const MachineItem = ({ machine }) => {
             <p className="mb-4 font-bold text-xl">Machine Uses:</p>
             <p className="text-gray-700 mb-4">{machineUse}</p>
           </>
-        )}
-
-        {/* Firebase Document ID */}
-        {machine.id && (
-          <p className="mb-4 text-gray-600">
-            <span className="font-bold">Document ID:</span> {machine.id}
-          </p>
         )}
 
         {/* Details Table */}

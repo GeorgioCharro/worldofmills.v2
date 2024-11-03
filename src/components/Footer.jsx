@@ -88,7 +88,7 @@ function Footer() {
             onClick={handleEmailClick}
           >
             <Email className="#cfac6e p-2 rounded-full text-black" />
-            <p>worldofmills1@gmail.com</p>
+            <p>worldofmills0@gmail.com</p>
           </div>
           <div className="flex items-center space-x-2">
             <LocationOn className="#cfac6e p-2 rounded-full text-black" />
