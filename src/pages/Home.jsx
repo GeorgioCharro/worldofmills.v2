@@ -36,7 +36,7 @@ function Home() {
       image: ThymeImage,
       label: "Thyme And Spices Machines",
     },
-    { path: "/category/Nuts", image: NutsImage, label: "Nuts" },
+    { path: "/category/Nuts", image: NutsImage, label: "Nuts Machines" },
     {
       path: "/category/Feeder",
       image: AnimalFoodImage,
@@ -47,7 +47,7 @@ function Home() {
       image: ChocolateImage,
       label: "Chocolate Machines",
     },
-    { path: "/category/Dairy", image: DairyImage, label: "Dairy" },
+    { path: "/category/Dairy", image: DairyImage, label: "Dairy Machines" },
     {
       path: "/category/Filling",
       image: FillingImage,
