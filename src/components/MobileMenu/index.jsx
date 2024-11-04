@@ -64,6 +64,13 @@ const MobileMenu = () => {
     }
   };
 
+  // Helper function to get translation key with fallback
+  const translateMenuTitle = (title) => {
+    const translationKey = `menu.${title.toLowerCase().replace(/ /g, "_")}`;
+    const translatedTitle = t(translationKey);
+    return translatedTitle.startsWith("menu.") ? title : translatedTitle;
+  };
+
   return (
     <MobileMenuContainer>
       <NavIcon
@@ -90,7 +97,7 @@ const MobileMenu = () => {
             <SubMenu
               item={{
                 ...item,
-                title: t(`menu.${item.title.toLowerCase().replace(/ /g, "_")}`),
+                title: translateMenuTitle(item.title), // Use helper function here
               }}
               key={index}
               closeSidebar={closeSidebar} // Pass closeSidebar as a prop

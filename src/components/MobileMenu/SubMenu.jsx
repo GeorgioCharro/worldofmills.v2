@@ -50,6 +50,13 @@ const SubMenu = ({ item, closeSidebar }) => {
 
   const showSubnav = () => setSubnav(!subnav);
 
+  // Helper function to translate menu items with a fallback to the title itself if not found
+  const translateTitle = (title) => {
+    const key = `menu.${title.toLowerCase().replace(/ /g, "_")}`;
+    const translated = t(key);
+    return translated.startsWith("menu.") ? title : translated;
+  };
+
   return (
     <>
       <SidebarLink
@@ -62,7 +69,7 @@ const SubMenu = ({ item, closeSidebar }) => {
         <div>
           {item.icon}
           <SidebarLabel>
-            {t(`menu.${item.title.toLowerCase().replace(/ /g, "_")}`)}
+            {translateTitle(item.title)} {/* Use helper function here */}
           </SidebarLabel>
         </div>
         <div>
@@ -74,23 +81,18 @@ const SubMenu = ({ item, closeSidebar }) => {
         </div>
       </SidebarLink>
       {subnav &&
-        item.subNav?.map(
-          (
-            data,
-            index // Optional chaining used here
-          ) => (
-            <DropdownLink
-              to={data.path}
-              key={index}
-              onClick={closeSidebar} // Close sidebar on dropdown link click
-            >
-              {item.icon}
-              <SidebarLabel>
-                {t(`menu.${data.title.toLowerCase().replace(/ /g, "_")}`)}
-              </SidebarLabel>
-            </DropdownLink>
-          )
-        )}
+        item.subNav?.map((data, index) => (
+          <DropdownLink
+            to={data.path}
+            key={index}
+            onClick={closeSidebar} // Close sidebar on dropdown link click
+          >
+            {item.icon}
+            <SidebarLabel>
+              {translateTitle(data.title)} {/* Use helper function here */}
+            </SidebarLabel>
+          </DropdownLink>
+        ))}
     </>
   );
 };
