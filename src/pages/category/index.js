@@ -43,7 +43,7 @@ function Category() {
           ))
         ) : (
           <p className="text-center text-gray-700">
-            No machines found for this category. {machineCategory}
+            No machines found for {machineCategory}
           </p>
           
         )}
