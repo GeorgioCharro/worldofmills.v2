@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { BsArrowRight } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import HeroBg1 from "../../assets/HeroPicture.jpeg";
 
 function Hero1() {
@@ -27,30 +27,26 @@ function Hero1() {
                 <div className="col-12 col-lg-8 col-xl-6">
                   <div className="hero-contents">
                     <h1>Global Automotive</h1>
-                    {/* Button with Inline-Flex for Same Line */}
-                    <Link
-                      to="/services"
-                      className="theme-btn inline-flex items-center space-x-2"
-                      style={{
-                        display: "inline-flex",
-                        alignItems: "center",
-                        textDecoration: "none",
-                        fontWeight: "bold",
-                      }}
-                    >
-                      <span>Our Services</span>
-                      <BsArrowRight
+
+                    <Link href="/services" legacyBehavior>
+                      <a
+                        className="theme-btn inline-flex items-center space-x-2"
                         style={{
-                          fontSize: "18px",
+                          display: "inline-flex",
+                          alignItems: "center",
+                          textDecoration: "none",
+                          fontWeight: "bold",
                         }}
-                      />
+                      >
+                        <span>Our Services</span>
+                        <BsArrowRight style={{ fontSize: "18px" }} />
+                      </a>
                     </Link>
 
-                    <Link
-                      to="/about"
-                      className="theme-btn black inline-block mt-4"
-                    >
-                      Learn more
+                    <Link href="/about" legacyBehavior>
+                      <a className="theme-btn black inline-block mt-4">
+                        Learn more
+                      </a>
                     </Link>
                   </div>
                 </div>

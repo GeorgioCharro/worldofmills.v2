@@ -1,11 +1,11 @@
 import React from 'react';
 import { BsArrowRight } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import heroImg from '../../assets/img/home3/hero-3.jpg';
 import { useTranslation } from "react-i18next";
 
 function Hero3() {
-    const { t } = useTranslation(); // Access the translation function
+    const { t } = useTranslation();
 
     return (
         <section className="hero-slide-wrapper hero-3">
@@ -15,27 +15,31 @@ function Hero3() {
                         <div className="row align-items-center text-center text-xl-start">
                             <div className="col-12 col-lg-8 offset-lg-2 offset-xl-0 col-xl-7">
                                 <div className="hero-contents">
-                                    <p>{t("innovative_food_processing_solutions")}</p> 
-                                    <h1>{t("advanced_machinery_modern_food_industry")}</h1> 
-                                    <Link 
-                                        to="/services" 
-                                        className="theme-btn theme-3"
-                                        style={{
-                                            display: 'inline-flex',
-                                            alignItems: 'center',
-                                            justifyContent: 'center',
-                                            whiteSpace: 'nowrap',
-                                            gap: '8px',
-                                        }}
-                                    >
-                                        {t("our_services")} <BsArrowRight />
+                                    <p>{t("innovative_food_processing_solutions")}</p>
+                                    <h1>{t("advanced_machinery_modern_food_industry")}</h1>
+
+                                    <Link href="/services" legacyBehavior>
+                                        <a
+                                            className="theme-btn theme-3"
+                                            style={{
+                                                display: 'inline-flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                whiteSpace: 'nowrap',
+                                                gap: '8px',
+                                            }}
+                                        >
+                                            {t("our_services")} <BsArrowRight />
+                                        </a>
                                     </Link>
-                                    <Link 
-                                        to="/about" 
-                                        className="theme-btn theme-3"
-                                        style={{ marginLeft: '15px' }}
-                                    >
-                                        {t("learn_more")}
+
+                                    <Link href="/about" legacyBehavior>
+                                        <a
+                                            className="theme-btn theme-3"
+                                            style={{ marginLeft: '15px' }}
+                                        >
+                                            {t("learn_more")}
+                                        </a>
                                     </Link>
                                 </div>
                             </div>

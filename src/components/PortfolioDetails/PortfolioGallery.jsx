@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 function PortfolioGallery({ galeryImg }) {
   return (
@@ -6,8 +7,13 @@ function PortfolioGallery({ galeryImg }) {
       <div className="project-shot">
         <div>
           <a href={galeryImg} className="popup-gallery">
-            {" "}
-            <img src={galeryImg} alt="" />
+            <Image
+              src={galeryImg}
+              alt="Project"
+              width={500}
+              height={400}
+              className="w-full h-auto object-cover"
+            />
           </a>
         </div>
       </div>

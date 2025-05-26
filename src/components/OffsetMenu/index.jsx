@@ -10,7 +10,8 @@ import {
   FaTwitter,
   FaYoutube,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import Link from "next/link";
+import Image from "next/image";
 import logo from "../../assets/logo.png";
 
 function OffsetMenu({ className, handleOffset }) {
@@ -22,8 +23,10 @@ function OffsetMenu({ className, handleOffset }) {
       <div className="offset-menu-wrapper text-white">
         <div className="offset-menu-header">
           <div className="offset-menu-logo">
-            <Link to="/">
-              <img src={logo} alt="logo" />
+            <Link href="/">
+              <a>
+                <Image src={logo} alt="logo" width={140} height={40} />
+              </a>
             </Link>
           </div>
         </div>
@@ -35,8 +38,8 @@ function OffsetMenu({ className, handleOffset }) {
             denouncing pleasures and praising pain was born and I will give you
             a completed
           </p>
-          <Link to="/contact" className="theme-btn mt-30">
-            Consultation
+          <Link href="/contact">
+            <a className="theme-btn mt-30">Consultation</a>
           </Link>
         </div>
 
@@ -68,19 +71,19 @@ function OffsetMenu({ className, handleOffset }) {
 
         <div className="offset-menu-footer">
           <div className="offset-menu-social-icon">
-            <a href="/">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
               <FaFacebookF />
             </a>
-            <a href="/">
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
               <FaTwitter />
             </a>
-            <a href="/">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
               <FaLinkedinIn />
             </a>
-            <a href="/">
+            <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer">
               <FaDribbble />
             </a>
-            <a href="/">
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
               <FaYoutube />
             </a>
           </div>

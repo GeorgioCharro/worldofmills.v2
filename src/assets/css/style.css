@@ -12,7 +12,9 @@ Version: 1.0
   margin: 0;
   padding: 0;
 }
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 body,
 html {
   height: 100%;
@@ -21,6 +23,63 @@ html {
 html {
   scroll-behavior: smooth;
 }
+
+.chart-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;       /* Optional: limit max width */
+  aspect-ratio: 2 / 1;     /* Maintain 2:1 ratio */
+  margin: 0 auto;
+}
+
+.chart-container img {
+  object-fit: contain;
+}
+.about-section {
+  position: relative;
+  background-image: url('/path/to/your/image.jpg'); /* Update with your actual image path */
+  background-size: cover;
+  background-position: center;
+  height: 24rem; /* h-96 equivalent */
+  color: white;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: black;
+  opacity: 0.7;
+}
+
+.about-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  padding: 2rem;
+  max-width: 42rem; /* max-w-2xl */
+  margin-left: auto;
+}
+
+.about-content h2 {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.about-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about-content li {
+  margin-bottom: 0.5rem;
+}
+
 
 html, body, div, span, img,
 ol, ul, li, a, p, h1, h2, h3,
@@ -9620,6 +9679,139 @@ header.header-3 .mobile-menu-bar {
 @media (max-width: 767px) {
   .comment-form textarea {
     height: 120px;
+  }
+}
+.custom-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem; /* equivalent to Tailwind gap-6 */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.category-card-link {
+  width: 100%;
+  height: 192px;
+  border-radius: 0.5rem;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.category-wrapper {
+  padding: 1rem;
+  background-color: #f3f4f6; /* Tailwind bg-gray-100 */
+  border-radius: 0.5rem;     /* Tailwind rounded-lg */
+  margin-top: 2rem;          /* Tailwind mt-8 */
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem; /* Tailwind gap-6 */
+}
+
+@media (min-width: 768px) {
+  .category-grid {
+    grid-template-columns: repeat(3, 1fr); /* md:grid-cols-3 */
+  }
+}
+
+@media (min-width: 1024px) {
+  .category-grid {
+    grid-template-columns: repeat(5, 1fr); /* lg:grid-cols-5 */
+  }
+}
+
+.category-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 24rem; /* Tailwind max-w-sm */
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Tailwind shadow-lg */
+  transition: box-shadow 0.3s ease;
+}
+
+.category-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* Tailwind hover:shadow-xl */
+}
+
+.category-card-link {
+  width: 100%;
+  height: 192px; /* Tailwind h-48 */
+  border-radius: 0.5rem;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.category-label {
+  background-color: rgba(0, 0, 0, 0.6); /* Tailwind bg-black bg-opacity-60 */
+  padding: 0.5rem;
+  width: 100%;
+  text-align: center;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.category-label h2 {
+  font-size: 1.125rem;  /* Tailwind text-lg */
+  font-weight: 700;     /* Tailwind font-bold */
+  color: white;
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+  margin-left: 1rem;
+  text-align: right;
+  gap: 1rem;
+}
+
+.header-actions .theme-btn {
+  /* adjust your button styles here */
+  background-color: #000;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.mobile-menu-bar {
+  display: flex;
+  align-items: center;
+}
+
+/* Responsive widths */
+@media (min-width: 1200px) {
+  .header-actions {
+    width: 25%; /* col-xl-3 */
+  }
+}
+
+@media (min-width: 992px) {
+  .header-actions {
+    width: 33.3333%; /* col-lg-4 */
+  }
+}
+
+@media (min-width: 768px) {
+  .header-actions {
+    width: 41.6667%; /* col-md-5 */
+  }
+}
+
+@media (max-width: 767px) {
+  .header-actions {
+    width: 50%; /* col-6 */
   }
 }
 

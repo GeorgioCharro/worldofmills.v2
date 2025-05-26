@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 
-const SidebarLink = styled(Link)`
+const SidebarLink = styled.a`
   display: flex;
   color: #fff;
   justify-content: space-between;
@@ -28,7 +28,7 @@ const SidebarLabel = styled.span`
   font-weight: 400;
 `;
 
-const DropdownLink = styled(Link)`
+const DropdownLink = styled.a`
   height: 60px;
   padding-left: 3rem;
   display: flex;
@@ -36,6 +36,7 @@ const DropdownLink = styled(Link)`
   text-decoration: none;
   color: #fff;
   font-size: 16px;
+
   &:hover,
   &:active {
     background: #ffc107;
@@ -50,7 +51,6 @@ const SubMenu = ({ item, closeSidebar }) => {
 
   const showSubnav = () => setSubnav(!subnav);
 
-  // Helper function to translate menu items with a fallback to the title itself if not found
   const translateTitle = (title) => {
     const key = `menu.${title.toLowerCase().replace(/ /g, "_")}`;
     const translated = t(key);
@@ -59,39 +59,35 @@ const SubMenu = ({ item, closeSidebar }) => {
 
   return (
     <>
-      <SidebarLink
-        to={item.path}
-        onClick={() => {
-          if (!item.subNav) closeSidebar();
-          showSubnav();
-        }}
-      >
-        <div>
-          {item.icon}
-          <SidebarLabel>
-            {translateTitle(item.title)} {/* Use helper function here */}
-          </SidebarLabel>
-        </div>
-        <div>
-          {item.subNav && subnav
-            ? item.iconOpened
-            : item.subNav
-            ? item.iconClosed
-            : null}
-        </div>
-      </SidebarLink>
+      <Link href={item.path || "#"} legacyBehavior>
+        <SidebarLink
+          onClick={() => {
+            if (!item.subNav) closeSidebar();
+            showSubnav();
+          }}
+        >
+          <div>
+            {item.icon}
+            <SidebarLabel>{translateTitle(item.title)}</SidebarLabel>
+          </div>
+          <div>
+            {item.subNav && subnav
+              ? item.iconOpened
+              : item.subNav
+              ? item.iconClosed
+              : null}
+          </div>
+        </SidebarLink>
+      </Link>
+
       {subnav &&
         item.subNav?.map((data, index) => (
-          <DropdownLink
-            to={data.path}
-            key={index}
-            onClick={closeSidebar} // Close sidebar on dropdown link click
-          >
-            {item.icon}
-            <SidebarLabel>
-              {translateTitle(data.title)} {/* Use helper function here */}
-            </SidebarLabel>
-          </DropdownLink>
+          <Link href={data.path || "#"} legacyBehavior key={index}>
+            <DropdownLink onClick={closeSidebar}>
+              {item.icon}
+              <SidebarLabel>{translateTitle(data.title)}</SidebarLabel>
+            </DropdownLink>
+          </Link>
         ))}
     </>
   );
