@@ -1,13 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 function ServiceCategory({ link, category }) {
     return (
-        <>
-            <li>
-                <Link to={link}>{category}</Link>
-            </li>
-        </>
+        <li>
+            <Link href={link} legacyBehavior>
+                <a>{category}</a>
+            </Link>
+        </li>
     );
 }
 

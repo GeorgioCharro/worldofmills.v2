@@ -1,10 +1,10 @@
 import React from "react";
-import { useTranslation } from "react-i18next"; // Import useTranslation
+import { useTranslation } from "react-i18next";
 import { AiOutlineUser } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 function PortfolioOneSlide({ image, category, client, title, desc, btnText }) {
-  const { t } = useTranslation(); // Access translation function
+  const { t } = useTranslation();
 
   return (
     <div className="single-project">
@@ -24,18 +24,16 @@ function PortfolioOneSlide({ image, category, client, title, desc, btnText }) {
             </div>
             <h2>{t(title)}</h2>
             <p>{t(desc)}</p>
-            <Link to="/project-details" className="read-btn theme-btn">
-              {t(btnText)}
+            <Link href="/project-details" legacyBehavior>
+              <a className="read-btn theme-btn">{t(btnText)}</a>
             </Link>
           </div>
           <div className="project-thumbnail col-lg-5 offset-lg-1 p-lg-0 order-1 order-lg-2 col-12">
             <a
               href="/"
               className="popup-gallery bg-cover"
-              style={{ backgroundImage: `url(${image})` }}
+              style={{ backgroundImage: `url(${image.src})` }}
             >
-              <span className="sr-only">{t(title)}</span>{" "}
-              {/* Screen reader-only content */}
             </a>
           </div>
         </div>

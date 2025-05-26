@@ -1,14 +1,16 @@
 import React from 'react';
 import { BsArrowRight } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 function FilterItem({ image, name, price, heading }) {
     return (
         <div className="col-xl-3 col-md-6 grid-item bedroom">
             <div className="single-cause-item">
                 <div className="cause-bg bg-cover" style={{ backgroundImage: `url(${image})` }}>
-                    <Link to="/project-details" className="icon">
-                        <BsArrowRight />
+                    <Link href="/project-details" legacyBehavior>
+                        <a className="icon">
+                            <BsArrowRight />
+                        </a>
                     </Link>
                 </div>
                 <div className="cause-content">
@@ -17,7 +19,9 @@ function FilterItem({ image, name, price, heading }) {
                         <div className="project-amount ml-15">{price}</div>
                     </div>
                     <h4>
-                        <Link to="/project-details">{heading}</Link>
+                        <Link href="/project-details" legacyBehavior>
+                            <a>{heading}</a>
+                        </Link>
                     </h4>
                 </div>
             </div>

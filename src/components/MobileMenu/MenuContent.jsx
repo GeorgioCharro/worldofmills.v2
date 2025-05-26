@@ -1,6 +1,6 @@
 import React from 'react';
 import { AiOutlineMail, AiOutlinePhone } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { useTranslation } from "react-i18next";
 
 const MenuContent = () => {
@@ -19,8 +19,10 @@ const MenuContent = () => {
                 </li>
             </ul>
             <div className="bottom-btn mx-auto w-max">
-                <Link to="/contact" className="d-btn theme-btn d-block text-white">
-                    {t('contact_us')}
+                <Link href="/contact" legacyBehavior>
+                    <a className="d-btn theme-btn d-block text-white">
+                        {t('contact_us')}
+                    </a>
                 </Link>
             </div>
         </div>

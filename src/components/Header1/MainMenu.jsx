@@ -1,6 +1,6 @@
 import React from "react";
 import { FaTh } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 function MainMenu({ hanldeOffset }) {
   return (
@@ -11,27 +11,41 @@ function MainMenu({ hanldeOffset }) {
           <div className="main-menu">
             <ul className="flex items-center space-x-4">
               <li>
-                <Link to="/">Home</Link>
+                <Link href="/" legacyBehavior>
+                  <a>Home</a>
+                </Link>
               </li>
               <li>
-                <Link to="/about">About</Link>
+                <Link href="/about" legacyBehavior>
+                  <a>About</a>
+                </Link>
               </li>
               <li>
-                <Link to="/">Pages</Link>
+                <Link href="/" legacyBehavior>
+                  <a>Pages</a>
+                </Link>
                 <ul className="sub-menu">
                   <li>
-                    <Link to="/team">team</Link>
+                    <Link href="/team" legacyBehavior>
+                      <a>team</a>
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/faq">faq</Link>
+                    <Link href="/faq" legacyBehavior>
+                      <a>faq</a>
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/projects">projects</Link>
+                    <Link href="/projects" legacyBehavior>
+                      <a>projects</a>
+                    </Link>
                   </li>
                 </ul>
               </li>
               <li>
-                <Link to="/contact">Contact</Link>
+                <Link href="/contact" legacyBehavior>
+                  <a>Contact</a>
+                </Link>
               </li>
             </ul>
           </div>

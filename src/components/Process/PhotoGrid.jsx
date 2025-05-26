@@ -10,19 +10,19 @@ function PhotoGrid() {
                 <div
                     className="top-img bg-cover"
                     style={{
-                        backgroundImage: `url(${img1})`,
+                        backgroundImage: `url(${img1.src})`,
                     }}
                 />
                 <div
                     className="main-img bg-cover"
                     style={{
-                        backgroundImage: `url(${img2})`,
+                        backgroundImage: `url(${img2.src})`,
                     }}
                 />
                 <div
                     className="bottom-img bg-cover"
                     style={{
-                        backgroundImage: `url(${img3})`,
+                        backgroundImage: `url(${img3.src})`,
                     }}
                 />
             </div>

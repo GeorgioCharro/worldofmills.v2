@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import * as AiIcons from "react-icons/ai";
 import { AiOutlineBars } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import styled from "styled-components";
 import MenuContent from "./MenuContent";
 import { useTranslation } from "react-i18next";
@@ -9,12 +9,13 @@ import { LanguageContext } from "../../contexts/LanguageContext";
 import menuData from "./menuData";
 import SubMenu from "./SubMenu";
 
-const NavIcon = styled(Link)`
+const NavIcon = styled.a`
   font-size: 2rem;
   height: 50px;
   display: flex;
   align-items: center;
   margin-left: 20px;
+  cursor: pointer;
 `;
 
 const MobileMenuContainer = styled.div`
@@ -50,9 +51,8 @@ const MobileMenu = () => {
   const { language, toggleLanguage } = useContext(LanguageContext);
   const [sidebar, setSidebar] = useState(false);
 
-  const closeSidebar = () => setSidebar(false); // Explicitly close the sidebar
-
-  const toggleSidebar = () => setSidebar(!sidebar); // Toggle function
+  const closeSidebar = () => setSidebar(false);
+  const toggleSidebar = () => setSidebar(!sidebar);
 
   const handleLanguageChange = (e) => {
     const selectedLanguage = e.target.value;
@@ -64,7 +64,6 @@ const MobileMenu = () => {
     }
   };
 
-  // Helper function to get translation key with fallback
   const translateMenuTitle = (title) => {
     const translationKey = `menu.${title.toLowerCase().replace(/ /g, "_")}`;
     const translatedTitle = t(translationKey);
@@ -73,37 +72,40 @@ const MobileMenu = () => {
 
   return (
     <MobileMenuContainer>
-      <NavIcon
-        className="d-lg-none"
-        to="#"
-        style={{ justifyContent: "flex-end" }}
-      >
-        <AiOutlineBars onClick={toggleSidebar} />
-      </NavIcon>
+      <Link href="#" legacyBehavior>
+        <NavIcon className="d-lg-none" style={{ justifyContent: "flex-end" }}>
+          <AiOutlineBars onClick={toggleSidebar} />
+        </NavIcon>
+      </Link>
 
       <SidebarNav sidebar={sidebar}>
         <SidebarWrap>
-          <NavIcon to="#">
-            <AiIcons.AiOutlineClose
-              style={{
-                color: "white",
-                fontSize: "18px",
-                justifyContent: "flex-start",
-              }}
-              onClick={toggleSidebar}
-            />
-          </NavIcon>
+          <Link href="#" legacyBehavior>
+            <NavIcon>
+              <AiIcons.AiOutlineClose
+                style={{
+                  color: "white",
+                  fontSize: "18px",
+                  justifyContent: "flex-start",
+                }}
+                onClick={toggleSidebar}
+              />
+            </NavIcon>
+          </Link>
+
           {menuData.map((item, index) => (
             <SubMenu
               item={{
                 ...item,
-                title: translateMenuTitle(item.title), // Use helper function here
+                title: translateMenuTitle(item.title),
               }}
               key={index}
-              closeSidebar={closeSidebar} // Pass closeSidebar as a prop
+              closeSidebar={closeSidebar}
             />
           ))}
+
           <MenuContent />
+
           <LanguageSelect>
             <select
               id="lan"

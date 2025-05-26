@@ -5,83 +5,93 @@ import { toast } from 'react-toastify';
 import { db } from '../../firebase.config';
 import bg from '../../assets/img/subscribe_bg.jpg';
 import img from '../../assets/img/subscribe_left_bg.jpg';
-import { useTranslation } from 'react-i18next'; // Import useTranslation
+import { useTranslation } from 'react-i18next';
 
 function Subscribe() {
-    const { t } = useTranslation(); // Access translation function
-    const [email, setEmail] = useState('');
+  const { t } = useTranslation();
+  const [email, setEmail] = useState('');
 
-    const onChangeHandler = (e) => setEmail(e.target.value);
+  const onChangeHandler = (e) => setEmail(e.target.value);
 
-    const onSubmitHandler = async (e) => {
-        e.preventDefault();
+  const onSubmitHandler = async (e) => {
+    e.preventDefault();
+    try {
+      await addDoc(collection(db, 'newsletter'), { email });
+      toast.success(t('subscription_success'));
+      setEmail('');
+    } catch (error) {
+      console.error('Error adding document: ', error);
+      toast.error(t('subscription_failure'));
+    }
+  };
 
-        try {
-            await addDoc(collection(db, 'newsletter'), { email });
-            toast.success(t('subscription_success')); // Display success message
-            setEmail(''); // Clear the input field
-        } catch (error) {
-            console.error('Error adding document: ', error);
-            toast.error(t('subscription_failure')); // Display failure message
-        }
-    };
+  return (
+    <section
+      className="text-white py-5 position-relative"
+      style={{
+        backgroundImage: `url(${bg.src})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
+      {/* Optional Left Side Background */}
+      <div
+        className="d-none d-xl-block position-absolute top-0 start-0 h-100 w-50"
+        style={{
+          backgroundImage: `url(${img.src})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      />
 
-    return (
-        <section
-            className="subscribe-box-wrapper text-white bg-overlay section-padding bg-cover"
-            style={{ backgroundImage: `url(${bg})` }}
-        >
-            <div
-                className="subscribe_left_bg d-none d-xl-block bg-cover"
-                style={{ backgroundImage: `url(${img})` }}
-            />
-            <div className="container">
-                <div className="row">
-                    <div className="col-xl-7 col-12 xl:ml-auto">
-                        <div className="cta-contents flex flex-col items-center xl:items-start text-center xl:text-left space-y-6">
-                            <div
-                                className="icon bg-yellow-400 rounded-full"
-                                style={{
-                                    width: '80px',
-                                    height: '80px',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                }}
-                            >
-                                <FaComments style={{ fontSize: '40px', color: 'black' }} />
-                            </div>
+      <div className="container position-relative">
+        <div className="row justify-content-end">
+          <div className="col-12 col-xl-7">
+            <div className="text-center text-xl-start d-flex flex-column align-items-center align-items-xl-start gap-4">
 
-                            <h1 className="text-3xl font-bold">{t('subscribe_heading')}</h1>
-                            <p className="text-lg">{t('subscribe_desc')}</p>
+              <div
+                className="rounded-circle"
+                style={{
+                  width: '80px',
+                  height: '80px',
+                  backgroundColor: '#facc15',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              >
+                <FaComments style={{ fontSize: '40px', color: 'black' }} />
+              </div>
 
-                            <div className="subscribe-form w-full">
-                                <form
-                                    onSubmit={onSubmitHandler}
-                                    className="flex w-full items-stretch"
-                                >
-                                    <input
-                                        value={email}
-                                        onChange={onChangeHandler}
-                                        type="email"
-                                        placeholder={t('enter_email_placeholder')}
-                                        required
-                                        className="p-3 flex-1 rounded-l-md border text-white border-gray-300 text-black"
-                                    />
-                                    <button
-                                        className="submit-btn bg-blue-600 text-white px-6 rounded-r-md hover:bg-blue-700 transition duration-300"
-                                        type="submit"
-                                    >
-                                        {t('subscribe_button')}
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              <h1 className="h3 fw-bold">{t('subscribe_heading')}</h1>
+              <p className="fs-5">{t('subscribe_desc')}</p>
+
+              <form
+                onSubmit={onSubmitHandler}
+                className="d-flex w-100 flex-column flex-sm-row"
+              >
+                <input
+                  type="email"
+                  value={email}
+                  onChange={onChangeHandler}
+                  placeholder={t('enter_email_placeholder')}
+                  required
+                  className="form-control me-sm-2 mb-2 mb-sm-0"
+                />
+                <button
+                  type="submit"
+                  className="btn btn-primary px-4"
+                  style={{ backgroundColor: '#facc15', color: 'black', fontWeight: 'bold' }}
+                >
+                  {t('subscribe_button')}
+                </button>
+              </form>
             </div>
-        </section>
-    );
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default Subscribe;

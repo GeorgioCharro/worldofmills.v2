@@ -1,42 +1,120 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import Image from "next/image";
+import Link from "next/link";
 
 function PageBanner({ bannerBg, currentPage, heading }) {
   const { t } = useTranslation();
 
   return (
-    <section className="relative bg-[#cfac6e] py-[120px] md:py-[100px] sm:py-[70px] overflow-hidden">
-      <img
+    <section
+      style={{
+        position: "relative",
+        backgroundColor: "#cfac6e",
+        paddingTop: "120px",
+        paddingBottom: "120px",
+        overflow: "hidden",
+      }}
+    >
+      {/* Optimized background image */}
+      <Image
         src={bannerBg}
         alt="Page Banner Background"
-        className="w-full h-full object-cover absolute top-0 left-0"
+        layout="fill"
+        objectFit="cover"
+        quality={90}
+        priority
+        style={{
+          zIndex: 0,
+        }}
       />
-      <div className="absolute top-0 left-0 w-full h-full bg-black opacity-10" />
 
-      <div className="container relative">
-        <div className="row">
-          <div className="col-12 col-lg-12">
-            <div className="breadcrumb-wrap overflow-hidden">
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          backgroundColor: "black",
+          opacity: 0.1,
+          zIndex: 10,
+        }}
+      />
+
+      <div
+        style={{
+          position: "relative",
+          zIndex: 20,
+          maxWidth: "1140px",
+          margin: "0 auto",
+          paddingLeft: "15px",
+          paddingRight: "15px",
+        }}
+      >
+        <div style={{ display: "flex", flexWrap: "wrap" }}>
+          <div style={{ width: "100%" }}>
+            <div style={{ overflow: "hidden" }}>
               <nav>
-                <ol className="breadcrumb bg-transparent p-0 mb-[10px]">
-                  <li className="breadcrumb-item text-[#cfac6e] text-[15px] font-medium capitalize">
-                    <a href="index.html" className="text-white hover:text-[#ff5e14]">
-                      {t("breadcrumb_home")}
-                    </a>
+                <ol
+                  style={{
+                    backgroundColor: "transparent",
+                    padding: 0,
+                    marginBottom: "10px",
+                    display: "flex",
+                    listStyle: "none",
+                  }}
+                >
+                  <li
+                    style={{
+                      color: "#cfac6e",
+                      fontSize: "15px",
+                      fontWeight: 500,
+                      textTransform: "capitalize",
+                    }}
+                  >
+                    <Link href="/" passHref legacyBehavior>
+                      <a
+                        style={{
+                          color: "white",
+                          textDecoration: "none",
+                        }}
+                        onMouseEnter={(e) =>
+                          (e.target.style.color = "#ff5e14")
+                        }
+                        onMouseLeave={(e) =>
+                          (e.target.style.color = "white")
+                        }
+                      >
+                        {t("breadcrumb_home", "Home")}
+                      </a>
+                    </Link>
                   </li>
                   <li
-                    className="breadcrumb-item active text-[#c5c2c2] text-[15px] font-medium capitalize"
+                    style={{
+                      color: "#c5c2c2",
+                      fontSize: "15px",
+                      fontWeight: 500,
+                      textTransform: "capitalize",
+                      marginLeft: "8px",
+                    }}
                     aria-current="page"
                   >
-                    | {t(currentPage)}
+                    | {t(currentPage, currentPage)}
                   </li>
                 </ol>
               </nav>
             </div>
 
-            <div className="page-heading text-white">
-              <h1 className="text-[80px] leading-[1.1] md:text-[60px] sm:text-[40px]">
-                {t(heading)}
+            <div style={{ color: "white" }}>
+              <h1
+                style={{
+                  fontSize: "80px",
+                  lineHeight: 1.1,
+                  margin: 0,
+                }}
+              >
+                {t(heading, heading)}
               </h1>
             </div>
           </div>

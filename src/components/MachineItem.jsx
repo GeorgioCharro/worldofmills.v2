@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { LanguageContext } from "../contexts/LanguageContext";
+import Image from "next/image";
 
 const MachineItem = ({ machine }) => {
   const { language } = useContext(LanguageContext);
 
-  // Language-based rendering logic
   const machineName =
     language === "ar" ? machine.machineNameAr : machine.machineName;
   const machineUse =
@@ -21,73 +21,104 @@ const MachineItem = ({ machine }) => {
   const fanMotor = language === "ar" ? machine.FanMotorAr : machine.FanMotor;
   const roasteryMotor =
     language === "ar" ? machine.RoasteryMotorAr : machine.RoasteryMotor;
-  // Helper function to render a table row only if the value is present and not "HP"
+
   const renderRow = (label, value) => {
     if (!value || value.trim() === "" || value.trim().toLowerCase() === "hp")
       return null;
+
+    // Background colors from Tailwind replaced with inline style here
+    const bgColor = label === "Voltage" ? "#cfac6e" : "#353941";
+    const textColor = label === "Voltage" ? "black" : "white";
+
     return (
-      <tr className={label === "Voltage" ? "bg-[#cfac6e]" : "bg-[#353941]"}>
-        <td className="py-2 px-4 font-semibold border border-gray-300">
-          {label}
-        </td>
-        <td className="py-2 px-4 border border-gray-300">{value}</td>
+      <tr style={{ backgroundColor: bgColor, color: textColor }}>
+        <td className="py-2 px-3 fw-semibold border border-secondary">{label}</td>
+        <td className="py-2 px-3 border border-secondary">{value}</td>
       </tr>
     );
   };
 
   return (
-    <div className="relative my-10 bg-white shadow-lg rounded-lg overflow-visible flex flex-col md:flex-row pt-10">
+    <div
+      className="card my-4"
+      style={{ overflow: "visible", position: "relative" }}
+    >
       {/* Machine Name Header */}
-      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#cfac6e] px-6 py-2 rounded-md shadow-lg z-10">
-        <h2 className="md:text-xl text-xs font-bold text-black">
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          backgroundColor: "#cfac6e",
+          padding: "0.5rem 1.5rem",
+          borderRadius: "0.375rem",
+          boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
+          zIndex: 10,
+        }}
+      >
+        <h2 className="fw-bold mb-0" style={{ fontSize: "1.25rem", color: "black" }}>
           {machineName}
         </h2>
       </div>
 
-      {/* Machine Details */}
-      <div className="p-4 flex-1 flex flex-col justify-center">
-        {machineUse && (
-          <>
-            <p className="mb-4 font-bold text-xl">Machine Uses:</p>
-            <p className="text-gray-700 mb-4">{machineUse}</p>
-          </>
-        )}
+      <div className="row g-0">
+        {/* Machine Details */}
+        <div className="col-md-6 d-flex flex-column justify-content-center p-4">
+          {machineUse && (
+            <>
+              <p className="mb-3 fw-bold fs-4">Machine Uses:</p>
+              <p className="text-muted mb-4">{machineUse}</p>
+            </>
+          )}
 
-        {/* Details Table */}
-        <div className="overflow-x-auto">
-          <table className="min-w-full bg-gray-100 border text-white border-gray-300">
-            <thead>
-              <tr className="bg-black text-white">
-                <th className="py-2 px-4 text-center" colSpan="2">
-                  Machine Details
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {renderRow("Material", material)}
-              {renderRow("Roastery Motor", roasteryMotor)}
-              {renderRow("Fan Motor", fanMotor)}
-              {renderRow("Vibrator Motor", vibratorMotor)}
-              {renderRow("Heating System", heatingSystem)}
-              {renderRow("Capacity", capacity)}
-              {renderRow("Voltage", voltage)}
-              {renderRow("Dimensions", dimensions)}
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      {/* Machine Image */}
-      <div className="w-full md:w-1/2 flex-1 flex items-center justify-center">
-        {machine.imgUrls.length > 0 && (
-          <div className="w-full h-96 md:h-[500px] flex items-center justify-center bg-gray-100 rounded-lg overflow-hidden">
-            <img
-              src={machine.imgUrls[0]}
-              alt={machineName}
-              className="w-full h-full object-contain p-4 object-center"
-            />
+          {/* Details Table */}
+          <div className="table-responsive">
+            <table className="table table-bordered text-white mb-0" style={{ backgroundColor: "#212529" }}>
+              <thead>
+                <tr style={{ backgroundColor: "black" }}>
+                  <th className="text-center" colSpan="2">
+                    Machine Details
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {renderRow("Material", material)}
+                {renderRow("Roastery Motor", roasteryMotor)}
+                {renderRow("Fan Motor", fanMotor)}
+                {renderRow("Vibrator Motor", vibratorMotor)}
+                {renderRow("Heating System", heatingSystem)}
+                {renderRow("Capacity", capacity)}
+                {renderRow("Voltage", voltage)}
+                {renderRow("Dimensions", dimensions)}
+              </tbody>
+            </table>
           </div>
-        )}
+        </div>
+
+        {/* Machine Image */}
+        <div className="col-md-6 d-flex align-items-center justify-content-center p-3">
+          {machine.imgUrls?.length > 0 && (
+            <div
+              style={{
+                width: "100%",
+                height: "500px",
+                position: "relative",
+                backgroundColor: "#f8f9fa",
+                borderRadius: "0.375rem",
+                overflow: "hidden",
+                padding: "1rem",
+              }}
+            >
+              <Image
+                src={machine.imgUrls[0]}
+                alt={machineName}
+                fill
+                style={{ objectFit: "contain" }}
+              />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

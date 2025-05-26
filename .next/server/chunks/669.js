@@ -1,0 +1,1 @@
+exports.id=669,exports.ids=[669],exports.modules={3039:()=>{},5392:()=>{},7644:()=>{},2594:(t,o,r)=>{"use strict";r.d(o,{Tfp:()=>i});var e=r(5955);function i(t){return(0,e.w_)({tag:"svg",attr:{viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"2",strokeLinecap:"round",strokeLinejoin:"round"},child:[{tag:"polyline",attr:{points:"9 18 15 12 9 6"},child:[]}]})(t)}}};

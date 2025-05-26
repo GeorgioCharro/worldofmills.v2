@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const ExperienceSection = ({ ExperienceImage }) => {
   return (
@@ -6,10 +7,12 @@ const ExperienceSection = ({ ExperienceImage }) => {
       {/* Left Section - The Number with Image */}
       <div className="relative flex items-center justify-center w-full md:w-auto overflow-hidden">
         {/* Background Image */}
-        <img
+        <Image
           src={ExperienceImage}
           alt="Experience"
-          className="w-full h-full object-contain md:object-cover mix-blend-overlay"
+          fill
+          className="object-contain md:object-cover mix-blend-overlay"
+          style={{ zIndex: 0 }}
         />
         {/* Large Number */}
         <h1 className="absolute text-white text-[14rem] md:text-[20rem] font-extrabold z-10 mix-blend-overlay">
@@ -32,7 +35,7 @@ const ExperienceSection = ({ ExperienceImage }) => {
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris.
         </p>
-        <button className="#cfac6e hover:bg-yellow-600 text-black font-semibold px-8 py-4 rounded-lg shadow-md transition duration-300">
+        <button className="bg-[#cfac6e] hover:bg-yellow-600 text-black font-semibold px-8 py-4 rounded-lg shadow-md transition duration-300">
           Get In Touch →
         </button>
       </div>
