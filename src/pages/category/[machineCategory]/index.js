@@ -25,7 +25,6 @@ export default function CategoryPage({ machines, machineCategory }) {
   );
 }
 
-// Serialize Firestore timestamps
 const serializeTimestamps = (obj) => {
   return Object.entries(obj).reduce((acc, [key, value]) => {
     acc[key] =
@@ -38,29 +37,49 @@ const serializeTimestamps = (obj) => {
   }, {});
 };
 
-export async function getServerSideProps(context) {
-  const { machineCategory } = context.params;
+export async function getStaticPaths() {
+  // ⚠️ You must define all possible category slugs here for export to work
+const categories = [
+  'chocolate',
+  'dairy',
+  'filling',
+  'filtering',
+  'halawi',
+  'mills',
+  'nuts',
+  'tahina',
+  'thyme',
+  'thyme-and-spices',
+  'feeder'
+];
 
+  const paths = categories.map((category) => ({
+    params: { machineCategory: category },
+  }));
+
+  return { paths, fallback: false };
+}
+
+export async function getStaticProps({ params }) {
+  const { machineCategory } = params;
   try {
     const q = query(
       collection(db, 'machines'),
       where('machineType', '==', machineCategory)
     );
     const querySnapshot = await getDocs(q);
-
     const machinesData = querySnapshot.docs.map((doc) => ({
       id: doc.id,
       ...serializeTimestamps(doc.data()),
     }));
-
     return {
       props: {
-        machines: machinesData,
+        machines: machinesData || [],
         machineCategory,
       },
     };
   } catch (error) {
-    console.error('Error fetching machines:', error);
+    console.error(error);
     return {
       props: {
         machines: [],
@@ -69,3 +88,4 @@ export async function getServerSideProps(context) {
     };
   }
 }
+
