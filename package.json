@@ -34,6 +34,7 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@babel/plugin-transform-private-property-in-object": "^7.24.6",
     "@netlify/next": "^1.4.9",
+    "@netlify/plugin-nextjs": "^5.11.2",
     "autoprefixer": "^10.4.19",
     "eslint": "^9.13.0",
     "postcss": "^8.4.38",
