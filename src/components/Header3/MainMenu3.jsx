@@ -32,7 +32,7 @@ function MainMenu3() {
                 <li>
                   <Link href="#">{t('menu_category')}</Link>
                   <ul className="sub-menu">
-                    <li><Link href="/category/Thyme%20and%20Spices">{t('category_thyme_spices')}</Link></li>
+                    <li><Link href="/category/thyme-and-spices">{t('category_thyme_spices')}</Link></li>
                     <li><Link href="/category/nuts">{t('category_nuts')}</Link></li>
                     <li><Link href="/category/Feeder">{t('category_animal_feed')}</Link></li>
                     <li><Link href="/category/Chocolate">{t('category_chocolate')}</Link></li>
